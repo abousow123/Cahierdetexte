@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ActionBarDrawerToggle ab ;
+    Bundle bundle ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
