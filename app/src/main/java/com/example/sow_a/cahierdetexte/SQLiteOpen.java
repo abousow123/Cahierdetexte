@@ -1,4 +1,4 @@
-package DAO;
+package com.example.sow_a.cahierdetexte;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,8 +18,7 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_NOM_MATIERE = "nomMatiere";
     private static final String METIER_VOLOME_HORAIRE = "volumeHoraire";
     private static final String METIER_PROF = "professeur";
-    private static final String METIER_SEXE = "sexe";
-    private static final String METIER_EMAIL = "email";
+
 
     private static final String METIER_TABLE_NAME_MATIERE = "matiere";
 
@@ -28,8 +27,8 @@ public class SQLiteOpen extends SQLiteOpenHelper {
             "CREATE TABLE " + METIER_TABLE_NAME_MATIERE + "(" +
                     METIER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     METIER_NOM_MATIERE + " TEXT, " +
-                    METIER_PROF+" TEXT" +
-                    METIER_VOLOME_HORAIRE + " INTEGER, "+
+                    METIER_PROF+" TEXT," +
+                    METIER_VOLOME_HORAIRE + " INTEGER "+
                      "); ";
 
 

@@ -16,6 +16,10 @@ public class Matiere {
         this.id = id ;
     }
 
+    public String toString(){
+        return  "Matière:  "+this.nom_matiere + "\n"+"Professeur:  "+this.prof + "\n" + "Volume horaire:  " + this.volumeH +"heures";
+    }
+
     public String getNom_matiere() {
         return nom_matiere;
     }
