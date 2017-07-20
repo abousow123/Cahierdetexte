@@ -26,14 +26,16 @@ public class Liste_Matiere_Fragment extends Fragment {
     ListView listView ;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         dao = new DAO() ;
         matiereArrayList = dao.allMatiere(getContext()) ;
-        listView = (ListView)getView().findViewById(R.id.listMatiere) ;
+        //  listView = (ListView)getView()findViewById(R.id.listMatiere); ;
 
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +46,7 @@ public class Liste_Matiere_Fragment extends Fragment {
 
 
         ArrayAdapter<Matiere> adapter = new MyListAdapter() ;
-        listView.setAdapter(adapter);
+//        listView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_liste__matiere_, container, false);

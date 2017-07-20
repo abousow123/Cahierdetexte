@@ -27,25 +27,34 @@ public class M_Fragment extends Fragment {
     EditText editText1, editText2,editText3 ;
     DAO dao ;
 
+    MainActivity mainActivity;
+
 
     public M_Fragment() {
         // Required empty public constructor
     }
 
 
+
+
     @Override
-    public void onCreate( Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        View rootView =  inflater.inflate(R.layout.fragment_m_, container, false);
+
+      //  editText1 = mainActivity.set() ;
 
 
-        editText2 = (EditText)getView().findViewById(R.id.editText2) ;
-        editText3 = (EditText)getView().findViewById(R.id.editText3) ;
+       editText2 = (EditText)rootView.findViewById(R.id.editText2) ;
+      /*  editText3 = (EditText)getView().findViewById(R.id.editText3) ;
         add = (Button)getView().findViewById(R.id.butAddMatiere) ;
 
-        dao = new DAO() ;
+        dao = new DAO() ;*/
 
 
-        add.setOnClickListener(new View.OnClickListener() {
+/*        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ContentValues contentValues = new ContentValues() ;
@@ -77,24 +86,13 @@ public class M_Fragment extends Fragment {
 
                 }
             }
-        });
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        editText1 = (EditText)getView().findViewById(R.id.editText) ;
+        });*/
 
 
 
 
 
-
-
-
-        return inflater.inflate(R.layout.fragment_m_, container, false);
+        return rootView ;
 
     }
 
