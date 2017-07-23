@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -24,24 +25,19 @@ public class MainActivity extends AppCompatActivity
     ActionBarDrawerToggle ab ;
     Bundle bundle ;
 
+    TabHost tabHost;
+
     FragmentTransaction fragmentTransaction ;
     private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
 
      //   ViewPager viewPager = (ViewPager)findViewById(R.id.drawer_layout) ;
@@ -58,12 +54,15 @@ public class MainActivity extends AppCompatActivity
 
         fragmentManager = getSupportFragmentManager() ;
 
+        Accueil_Fragment matiereFragment = new Accueil_Fragment() ;
+        fragmentTransaction = fragmentManager.beginTransaction() ;
+        fragmentTransaction.replace(R.id.sss,matiereFragment) ;
+        fragmentTransaction.commit() ;
+
+
     }
 
-    public EditText set(){
-        EditText a = (EditText)findViewById(R.id.editText) ;
-        return a ;
-    }
+
 
     @Override
     public void onBackPressed() {

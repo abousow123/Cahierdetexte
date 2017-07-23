@@ -1,29 +1,37 @@
 package com.example.sow_a.cahierdetexte;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.support.v4.view.ViewPager;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 
-public class Liste_Matiere_Fragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Accueil_Fragment extends Fragment {
 
+    TabHost tabHost;
 
     ArrayList<Matiere> matiereArrayList ;
 
-
     DAO dao ;
     ListView listView ;
+
+
+    public Accueil_Fragment() {
+        // Required empty public constructor
+    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,37 +39,55 @@ public class Liste_Matiere_Fragment extends Fragment {
 
         dao = new DAO() ;
         matiereArrayList = dao.allMatiere(getContext()) ;
-
+        //  listView = (ListView)getView()findViewById(R.id.listMatiere); ;
 
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-          View view = inflater.inflate(R.layout.fragment_liste__matiere_, container, false);
-
-
-        listView = (ListView)view.findViewById(R.id.listMatiere);
+        // Inflate the layout for this fragment
+        View rootView =  inflater.inflate(R.layout.fragment_accueil_, container, false);
 
         ArrayAdapter<Matiere> adapter = new MyListAdapter() ;
+
+        listView = (ListView)rootView.findViewById(R.id.listMatiere);
+
         listView.setAdapter(adapter);
 
-        // Inflate the layout for this fragment
-        return view ;
+        TabHost host = (TabHost)rootView.findViewById(R.id.tabHost);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Tab One");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Matière");
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("Tab Two");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Cours");
+        host.addTab(spec);
+
+        //Tab 3
+        spec = host.newTabSpec("Tab Three");
+        spec.setContent(R.id.tab3);
+        spec.setIndicator("Professeur");
+        host.addTab(spec);
+
+
+        return rootView;
     }
-
-
 
     class MyListAdapter extends ArrayAdapter<Matiere> {
 
 
 
-      public   MyListAdapter() {
+        public   MyListAdapter() {
 
-            super(Liste_Matiere_Fragment.super.getContext(),R.layout.listview_matiere,matiereArrayList);
+            super(Accueil_Fragment.super.getContext(),R.layout.listview_matiere,matiereArrayList);
 
         }
 
@@ -89,19 +115,6 @@ public class Liste_Matiere_Fragment extends Fragment {
             return (row);
         }
     }
-
-
-  /*  class Acomp implements Comparator<Etudiant>{
-
-
-        @Override
-        public int compare(Etudiant a, Etudiant b) {
-            return a.getNom().compareToIgnoreCase(b.getNom());
-        }
-
-
-
-    }*/
 
 
 }

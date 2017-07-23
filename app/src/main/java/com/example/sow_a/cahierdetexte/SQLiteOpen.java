@@ -19,6 +19,10 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_VOLOME_HORAIRE = "volumeHoraire";
     private static final String METIER_PROF = "professeur";
 
+    private static final String METIER_KEY_COUR = "idCour" ;
+    private static final String METIER_COUR_MATIERE = "matiere" ;
+    private static final String METIER_COUR_DATE = "date" ;
+
 
     private static final String METIER_TABLE_NAME_MATIERE = "matiere";
 

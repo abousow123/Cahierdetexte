@@ -44,17 +44,17 @@ public class M_Fragment extends Fragment {
 
         View rootView =  inflater.inflate(R.layout.fragment_m_, container, false);
 
-      //  editText1 = mainActivity.set() ;
+        editText1 = (EditText)rootView.findViewById(R.id.editText) ;
 
 
        editText2 = (EditText)rootView.findViewById(R.id.editText2) ;
-      /*  editText3 = (EditText)getView().findViewById(R.id.editText3) ;
-        add = (Button)getView().findViewById(R.id.butAddMatiere) ;
+        editText3 = (EditText)rootView.findViewById(R.id.editText3) ;
+        add = (Button)rootView.findViewById(R.id.butAddMatiere) ;
 
-        dao = new DAO() ;*/
+        dao = new DAO() ;
 
 
-/*        add.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ContentValues contentValues = new ContentValues() ;
@@ -86,7 +86,7 @@ public class M_Fragment extends Fragment {
 
                 }
             }
-        });*/
+        });
 
 
 
