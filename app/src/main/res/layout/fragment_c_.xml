@@ -1,13 +1,97 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.sow_a.cahierdetexte.C_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment1" />
+    <TimePicker
+        android:id="@+id/timePicker4"
+        android:layout_width="150dp"
+        android:layout_height="135dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/spinner"
+        android:layout_marginEnd="44dp"
+        android:layout_marginTop="37dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textIsSelectable="true"
+        android:textSize="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_alignTop="@+id/timePicker4"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView9" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7" />
+
+    <TimePicker
+        android:id="@+id/timePicker2"
+        android:layout_width="150dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/textView9"
+        android:layout_alignStart="@+id/timePicker4" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginBottom="63dp"
+        android:layout_alignBottom="@+id/timePicker2"
+        android:layout_alignEnd="@+id/textView9"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/timePicker2"
+        android:layout_marginTop="41dp"
+        android:text="TextView"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/timePicker2"
+        android:layout_marginTop="28dp"
+        android:layout_toEndOf="@+id/textView10"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/buttonCour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/editText5"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="18dp"
+        android:text="Button" />
+
+
+</RelativeLayout>

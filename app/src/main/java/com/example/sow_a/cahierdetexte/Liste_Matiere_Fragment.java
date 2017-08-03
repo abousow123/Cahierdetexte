@@ -49,6 +49,8 @@ public class Liste_Matiere_Fragment extends Fragment {
         ArrayAdapter<Matiere> adapter = new MyListAdapter() ;
         listView.setAdapter(adapter);
 
+
+
         // Inflate the layout for this fragment
         return view ;
     }

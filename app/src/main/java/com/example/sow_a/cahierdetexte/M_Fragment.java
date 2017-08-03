@@ -23,6 +23,7 @@ public class M_Fragment extends Fragment {
     ArrayList<Matiere> matiereArrayList ;
 
 
+
     Button add ;
     EditText editText1, editText2,editText3 ;
     DAO dao ;
