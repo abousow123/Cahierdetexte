@@ -14,11 +14,38 @@ import java.util.ArrayList;
 public class DAO {
 
     SQLiteDatabase db;
+    SQLiteDatabase db1 ;
 
 //	public EtudiantDAO(Context context) {
 //		db = (new SQLiteOpen(context)).getWritableDatabase();
 //
 //	}
+public ArrayList<Cour> allCour(Context context){
+    ArrayList<Cour>  listCour = new ArrayList<Cour>() ;
+    db = (new SQLiteOpen1(context)).getReadableDatabase();
+    Cursor resul = db.rawQuery("SELECT idCour,matiere,date,heureDeb,heureFin,description FROM cour;",null) ;
+
+    resul.moveToFirst() ;
+
+    while(!resul.isAfterLast()){
+
+        int idc = resul.getInt(resul.getColumnIndex("idCour"));
+        String matiereCour = resul.getString(resul.getColumnIndex("matiere"));
+        String date = resul.getString(resul.getColumnIndex("date"));
+        String heureD = resul.getString(resul.getColumnIndex("heureDeb")) ;
+        String heureF = resul.getString(resul.getColumnIndex("heureFin")) ;
+        String Dec = resul.getString(resul.getColumnIndex("description")) ;
+
+
+        listCour.add(new Cour(idc,matiereCour,date,heureD,heureF,Dec)) ;
+
+        resul.moveToNext() ;
+    }
+
+    resul.close();
+
+    return  listCour ;
+}
 
     public void addMatiere(ContentValues cv, Context context) {
         db = (new SQLiteOpen(context)).getWritableDatabase();
@@ -68,31 +95,6 @@ public class DAO {
     }
 
 
-    public ArrayList<Cour> allCour(Context context){
-        ArrayList<Cour>  listCour = new ArrayList<Cour>() ;
-        db = (new SQLiteOpen(context)).getReadableDatabase();
-        Cursor result = db.rawQuery("SELECT idCour,matiere,date,heureDeb,heureFin,description from cour;",null) ;
 
-        result.moveToFirst() ;
-
-        while(!result.isAfterLast()){
-
-            int idc = result.getInt(result.getColumnIndex("idCour"));
-            String matiereCour = result.getString(result.getColumnIndex("matiere"));
-            String date = result.getString(result.getColumnIndex("date"));
-            String heureD = result.getString(result.getColumnIndex("heureDeb")) ;
-            String heureF = result.getString(result.getColumnIndex("heureFin")) ;
-            String Dec = result.getString(result.getColumnIndex("description")) ;
-
-
-            listCour.add(new Cour(idc,matiereCour,date,heureD,heureF,Dec)) ;
-
-            result.moveToNext() ;
-        }
-
-        result.close();
-
-        return  listCour ;
-    }
 
 }

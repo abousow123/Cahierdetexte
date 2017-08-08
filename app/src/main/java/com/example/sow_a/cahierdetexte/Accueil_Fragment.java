@@ -275,18 +275,46 @@ public class Accueil_Fragment extends Fragment {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Top 250");
+      /*  listDataHeader.add("Top 250");
         listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
+        listDataHeader.add("Coming Soon..");*/
+
 
         dao = new DAO() ;
 
+        List<String> li = new ArrayList<String>();
+
         for (int i = 0;i<dao.allCour(getContext()).size();i++){
             listDataHeader.add(dao.allCour(getContext()).get(i).getDate());
+
+
+        }
+        int k = 0 ;
+        while (k<=dao.allCour(getContext()).size()-1){
+            List<String> l = new ArrayList<String>();
+
+
+
+            for (int i = 0;i<dao.allCour(getContext()).size();i++){
+                l.add(dao.allCour(getContext()).get(i).getHeureDeb()) ;
+
+            }
+
+
+
+            listDataChild.put(listDataHeader.get(k), l);
+
+            k++ ;
+
         }
 
+
+
+
+
+
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
+    /*    List<String> top250 = new ArrayList<String>();
         top250.add("The Shawshank Redemption");
         top250.add("The Godfather");
         top250.add("The Godfather: Part II");
@@ -308,11 +336,12 @@ public class Accueil_Fragment extends Fragment {
         comingSoon.add("The Smurfs 2");
         comingSoon.add("The Spectacular Now");
         comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
+        comingSoon.add("Europa Report");*/
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
+      /*  listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
         listDataChild.put(listDataHeader.get(1), nowShowing);
         listDataChild.put(listDataHeader.get(2), comingSoon);
+        listDataChild.put(listDataHeader.get(3),li) ;*/
     }
 
 

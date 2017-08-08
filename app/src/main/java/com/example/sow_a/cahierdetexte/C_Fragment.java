@@ -71,17 +71,24 @@ public class C_Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String des = description.getText().toString() ;
-                String debut = deb.toString() ;
-                String f = fin.toString() ;
-                String sp = spinner.toString() ;
+
+                int  debut = deb.getCurrentHour() ;
+                int  debut1 = deb.getCurrentMinute() ;
+                String dT = debut+"h"+debut1 ;
+
+                int f = fin.getCurrentHour() ;
+                int f1 = fin.getCurrentMinute() ;
+                String ft = f + "h" + f1 ;
+
+                String sp = spinner.getSelectedItem().toString() ;
                 String d = getDateTime().toString() ;
 
                 ContentValues contentValues = new ContentValues() ;
 
                 contentValues.put("matiere",sp);
                 contentValues.put("date",d);
-                contentValues.put("heureDeb",debut);
-                contentValues.put("heureFin",f);
+                contentValues.put("heureDeb",dT);
+                contentValues.put("heureFin",ft);
                 contentValues.put("description",des);
 
                 dao.addCour(contentValues,getContext());

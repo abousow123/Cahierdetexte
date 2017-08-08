@@ -12,7 +12,7 @@ public class Cour {
     private String description ;
     private String date ;
 
-    public Cour(int id, String matiereCour, String date, String matiere, String heureDeb, String heureFin) {
+    public Cour(int id, String matiere, String date, String heureDeb, String heureFin,String description) {
         this.id = id;
         this.matiere = matiere;
         this.date = date ;
