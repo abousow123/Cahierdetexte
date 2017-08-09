@@ -1,11 +1,13 @@
 package com.example.sow_a.cahierdetexte;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    ActionBarDrawerToggle ab ;
+    ActionBarDrawerToggle toggle ;
     Bundle bundle ;
 
     TabHost tabHost;
@@ -50,10 +52,10 @@ public class MainActivity extends AppCompatActivity
       //  viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
-        toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -66,9 +68,20 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit() ;
 
 
+        ActionBar actionBar = getSupportActionBar() ;
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+
     }
 
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        toggle.syncState();
 
+    }
 
     @Override
     public void onBackPressed() {

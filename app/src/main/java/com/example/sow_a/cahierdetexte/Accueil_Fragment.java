@@ -42,9 +42,8 @@ public class Accueil_Fragment extends Fragment {
 
 
     public Accueil_Fragment() {
-        // Required empty public constructor
-    }
 
+    }
 
 
     @Override
@@ -53,21 +52,6 @@ public class Accueil_Fragment extends Fragment {
 
         dao = new DAO() ;
         matiereArrayList = dao.allMatiere(getContext()) ;
-        //  listView = (ListView)getView()findViewById(R.id.listMatiere); ;
-
-        ab = new ArrayList<String>();
-        ab.add("acd");
-        ab.add("gbv");
-        ab.add("bnn");
-        ab.add("bnbn");
-
-        ab1 = new ArrayList<String>();
-        ab1.add("gfbnhvbvn");
-        ab1.add("vghbvnbn");
-        ab1.add("nv,bjgjh");
-        ab1.add("bvhghhvvh");
-
-
 
     }
 
@@ -79,14 +63,10 @@ public class Accueil_Fragment extends Fragment {
         View rootView =  inflater.inflate(R.layout.fragment_accueil_, container, false);
 
         ArrayAdapter<Matiere> adapter = new MyListAdapter() ;
-       /* ArrayAdapter<String> adapter1 = new MyListAdapter1() ;
-        ArrayAdapter<String> adapter2 = new MyListAdapter2() ;*/
+
 
         listViewtab1 = (ListView)rootView.findViewById(R.id.listMatiere);
         expListView = (ExpandableListView)rootView.findViewById(R.id.listExpandable);
-      //  listViewtab2_suite = (ListView)rootView.findViewById(R.id.list_cour2) ;
-
-
 
 
 
@@ -117,9 +97,13 @@ public class Accueil_Fragment extends Fragment {
         // setting list adapter
         expListView.setAdapter(listAdapter);
 
-        expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Toast.makeText(getContext(),"dfdf",Toast.LENGTH_LONG).show();
+
+                final Cour c = dao.allCour(getContext()).get(i) ;
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(getContext()) ;
 
@@ -130,27 +114,52 @@ public class Accueil_Fragment extends Fragment {
 
 
             }
-        });
+        });*/
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(rootView.getContext());
+        alertDialog.setMessage("Enter your query");
+
+
+      expListView.setOnItemClickListener(new ListView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+              Toast.makeText(getContext(),"dfdf",Toast.LENGTH_LONG).show();
+
+
+              final Cour c = dao.allCour(getContext()).get(i) ;
+
+              AlertDialog.Builder buider = new AlertDialog.Builder(getContext()) ;
+
+              buider.setMessage(c.toString());
+
+              AlertDialog dialog = buider.create();
+              dialog.show();
+          }
+      });
 
 
 
-  //      listViewtab2.setAdapter(adapter1);
-//        listViewtab2_suite.setAdapter(adapter2);
+
+
+
 
         TabHost host = (TabHost)rootView.findViewById(R.id.tabHost);
         host.setup();
 
-        //Tab 1
+
+        //Tab 2
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Cours");
+        host.addTab(spec);
+
+        //Tab 1
+        spec = host.newTabSpec("Tab Two");
         spec.setContent(R.id.tab1);
         spec.setIndicator("Matière");
         host.addTab(spec);
 
-        //Tab 2
-        spec = host.newTabSpec("Tab Two");
-        spec.setContent(R.id.tab2);
-        spec.setIndicator("Cours");
-        host.addTab(spec);
+
 
         //Tab 3
         spec = host.newTabSpec("Tab Three");
@@ -296,7 +305,7 @@ public class Accueil_Fragment extends Fragment {
 
 
             for (int i = 0;i<dao.allCour(getContext()).size();i++){
-                l.add(dao.allCour(getContext()).get(i).getHeureDeb()) ;
+                l.add(dao.allCour(getContext()).get(i).getMatiere()) ;
 
             }
 
