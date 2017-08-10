@@ -55,10 +55,10 @@ public class C_Fragment extends Fragment {
         deb.setIs24HourView(true);
         fin.setIs24HourView(true);
 
-        dao = new DAO() ;
+        dao = new DAO(getContext()) ;
         ArrayList<String> ms = new ArrayList<>();
-        for (int i = 0;i<dao.allMatiere(getContext()).size();i++){
-            ms.add(dao.allMatiere(getContext()).get(i).getNom_matiere());
+        for (int i = 0;i<dao.allMatiere().size();i++){
+            ms.add(dao.allMatiere().get(i).getNom_matiere());
         }
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, ms) ;
@@ -87,11 +87,11 @@ public class C_Fragment extends Fragment {
 
                 contentValues.put("matiere",sp);
                 contentValues.put("date",d);
-                contentValues.put("heureDeb",dT);
-                contentValues.put("heureFin",ft);
+                contentValues.put("heuredeb",dT);
+                contentValues.put("heurefin",ft);
                 contentValues.put("description",des);
 
-                dao.addCour(contentValues,getContext());
+                dao.addCour(contentValues);
 
                 Toast.makeText(getContext(),"succes",Toast.LENGTH_LONG).show();
 

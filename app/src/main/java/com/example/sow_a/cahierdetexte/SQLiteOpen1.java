@@ -33,11 +33,11 @@ public class SQLiteOpen1 extends SQLiteOpenHelper {
     public static final String METIER_TABLE_CREATE_COUR =
             "CREATE TABLE " + METIER_TABLE_NAME_COUR + "(" +
                     METIER_KEY_COUR + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    METIER_COUR_MATIERE + " TEXT, " +
-                    METIER_COUR_DATE + " TEXT, " +
-                    METIER_COUR_HEURE_DEB+" TEXT," +
-                    METIER_COUR_HEURE_FIN + " TEXT, "+
-                    METIER_COUR_DESCRIPTION+ " TEXT" +
+                    METIER_COUR_MATIERE + " TEXT not null, " +
+                    METIER_COUR_DATE + " TEXT not null, " +
+                    METIER_COUR_HEURE_DEB+" TEXT not null," +
+                    METIER_COUR_HEURE_FIN + " TEXT not null, "+
+                    METIER_COUR_DESCRIPTION+ " TEXT not null" +
                     "); ";
 
 

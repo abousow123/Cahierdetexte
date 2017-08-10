@@ -16,62 +16,62 @@ public class DAO {
     SQLiteDatabase db;
     SQLiteDatabase db1 ;
 
-//	public EtudiantDAO(Context context) {
-//		db = (new SQLiteOpen(context)).getWritableDatabase();
-//
-//	}
-public ArrayList<Cour> allCour(Context context){
-    ArrayList<Cour>  listCour = new ArrayList<Cour>() ;
-    db = (new SQLiteOpen1(context)).getReadableDatabase();
-    Cursor resul = db.rawQuery("SELECT idCour,matiere,date,heureDeb,heureFin,description FROM cour;",null) ;
+	public DAO(Context context) {
+		db = (new SQLiteOpen(context)).getWritableDatabase();
 
-    resul.moveToFirst() ;
+	}
+public ArrayList<Cour> allCour(){
+    ArrayList<Cour>  listCour = new ArrayList<Cour>() ;
+   // db = (new SQLiteOpen(context)).getWritableDatabase();
+    Cursor resul = db.rawQuery("SELECT description from cour;",null) ;
+
+   /* resul.moveToFirst() ;
 
     while(!resul.isAfterLast()){
 
-        int idc = resul.getInt(resul.getColumnIndex("idCour"));
+        int idc = resul.getInt(resul.getColumnIndex("idcour"));
         String matiereCour = resul.getString(resul.getColumnIndex("matiere"));
         String date = resul.getString(resul.getColumnIndex("date"));
-        String heureD = resul.getString(resul.getColumnIndex("heureDeb")) ;
-        String heureF = resul.getString(resul.getColumnIndex("heureFin")) ;
+        String heureD = resul.getString(resul.getColumnIndex("heuredeb")) ;
+        String heureF = resul.getString(resul.getColumnIndex("heurefin")) ;
         String Dec = resul.getString(resul.getColumnIndex("description")) ;
 
 
         listCour.add(new Cour(idc,matiereCour,date,heureD,heureF,Dec)) ;
 
         resul.moveToNext() ;
-    }
+    }*/
 
     resul.close();
 
     return  listCour ;
 }
 
-    public void addMatiere(ContentValues cv, Context context) {
-        db = (new SQLiteOpen(context)).getWritableDatabase();
+    public void addMatiere(ContentValues cv) {
+      //  db = (new SQLiteOpen(context)).getWritableDatabase();
         db.insert("matiere",null, cv);
 
     }
 
-    public void addCour(ContentValues cv, Context context) {
-        db = (new SQLiteOpen(context)).getWritableDatabase();
+    public void addCour(ContentValues cv) {
+      //  db = (new SQLiteOpen(context)).getWritableDatabase();
         db.insert("cour",null, cv);
 
     }
 
-    public void updateMatiere(ContentValues cv, int id,Context context) {
-        db = (new SQLiteOpen(context)).getWritableDatabase();
+    public void updateMatiere(ContentValues cv, int id) {
+       // db = (new SQLiteOpen(context)).getWritableDatabase();
         db.update("matiere", cv, "id=" + id, null);
     }
 
-    public void deleteMatiere(int id,Context context) {
-        db = (new SQLiteOpen(context)).getWritableDatabase();
+    public void deleteMatiere(int id) {
+       // db = (new SQLiteOpen(context)).getWritableDatabase();
         db.delete("matiere", "id=" + id, null);
     }
 
-    public ArrayList<Matiere> allMatiere(Context context){
+    public ArrayList<Matiere> allMatiere(){
         ArrayList<Matiere>  listMatiere = new ArrayList<Matiere>() ;
-        db = (new SQLiteOpen(context)).getReadableDatabase();
+       // db = (new SQLiteOpen(context)).getReadableDatabase();
         Cursor result = db.rawQuery("SELECT idMat,nomMatiere,professeur,volumeHoraire from matiere;",null) ;
 
         result.moveToFirst() ;

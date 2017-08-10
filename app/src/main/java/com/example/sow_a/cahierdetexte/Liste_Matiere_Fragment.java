@@ -29,8 +29,8 @@ public class Liste_Matiere_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        dao = new DAO() ;
-        matiereArrayList = dao.allMatiere(getContext()) ;
+        dao = new DAO(getContext()) ;
+        matiereArrayList = dao.allMatiere() ;
 
 
     }

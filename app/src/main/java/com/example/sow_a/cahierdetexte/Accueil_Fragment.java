@@ -50,8 +50,8 @@ public class Accueil_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        dao = new DAO() ;
-        matiereArrayList = dao.allMatiere(getContext()) ;
+        dao = new DAO(getContext()) ;
+        matiereArrayList = dao.allMatiere() ;
 
     }
 
@@ -116,26 +116,12 @@ public class Accueil_Fragment extends Fragment {
             }
         });*/
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(rootView.getContext());
-        alertDialog.setMessage("Enter your query");
 
 
-      expListView.setOnItemClickListener(new ListView.OnItemClickListener() {
-          @Override
-          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-              Toast.makeText(getContext(),"dfdf",Toast.LENGTH_LONG).show();
 
 
-              final Cour c = dao.allCour(getContext()).get(i) ;
 
-              AlertDialog.Builder buider = new AlertDialog.Builder(getContext()) ;
 
-              buider.setMessage(c.toString());
-
-              AlertDialog dialog = buider.create();
-              dialog.show();
-          }
-      });
 
 
 
@@ -289,23 +275,23 @@ public class Accueil_Fragment extends Fragment {
         listDataHeader.add("Coming Soon..");*/
 
 
-        dao = new DAO() ;
+      //  dao = new DAO() ;
 
         List<String> li = new ArrayList<String>();
 
-        for (int i = 0;i<dao.allCour(getContext()).size();i++){
-            listDataHeader.add(dao.allCour(getContext()).get(i).getDate());
+        for (int i = 0;i<dao.allCour().size();i++){
+            listDataHeader.add(dao.allCour().get(i).getDate());
 
 
         }
         int k = 0 ;
-        while (k<=dao.allCour(getContext()).size()-1){
+        while (k<=dao.allCour().size()-1){
             List<String> l = new ArrayList<String>();
 
 
 
-            for (int i = 0;i<dao.allCour(getContext()).size();i++){
-                l.add(dao.allCour(getContext()).get(i).getMatiere()) ;
+            for (int i = 0;i<dao.allCour().size();i++){
+                l.add(dao.allCour().get(i).getMatiere()) ;
 
             }
 

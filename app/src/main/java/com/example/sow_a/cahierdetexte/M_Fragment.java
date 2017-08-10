@@ -52,7 +52,7 @@ public class M_Fragment extends Fragment {
         editText3 = (EditText)rootView.findViewById(R.id.editText3) ;
         add = (Button)rootView.findViewById(R.id.butAddMatiere) ;
 
-        dao = new DAO() ;
+        dao = new DAO(getContext()) ;
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +79,7 @@ public class M_Fragment extends Fragment {
                     contentValues.put("professeur",p);
                     contentValues.put("volumeHoraire",v);
 
-                    dao.addMatiere(contentValues,getContext());
+                    dao.addMatiere(contentValues);
 
                     Toast.makeText(getContext(),
                             "succés",
