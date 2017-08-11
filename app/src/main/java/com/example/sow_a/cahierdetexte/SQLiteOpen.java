@@ -20,12 +20,10 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_PROF = "professeur";
 
 
-
-
-
-
-
-    private static final String METIER_TABLE_NAME_MATIERE = "matiere";
+    private static final String METIER_KEY_UE = "idUE";
+    private static final String METIER_NOM_UE = "nomUE";
+    private static final String METIER_CREDIT_UE = "creditUE";
+    private static final String METIER_RESPONSABLE_UE = "responsableUE";
 
 
 
@@ -37,11 +35,27 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_COUR_HEURE_FIN = "heurefin" ;
     private static final String METIER_COUR_DESCRIPTION= "description" ;
 
+    private static final String METIER_KEY_ETUDIANT = "idEtudiant" ;
+    private static final String METIER_NOM = "nom";
+    private static final String METIER_PRENOM = "prenom";
+    private static final String METIER_AGE = "age";
+    private static final String METIER_SEXE = "sexe";
+    private static final String METIER_EMAIL = "email";
+
+    private static final String METIER_KEY_PROF = "idProf" ;
+    private static final String METIER_NOM_PROF = "nomProf";
+    private static final String METIER_PRENOM_PROF = "prenomProf";
+    private static final String METIER_SPECIALITE_PROF = "specialite";
 
 
 
-
+    private static final String METIER_TABLE_NAME_MATIERE = "matiere";
     private static final String METIER_TABLE_NAME_COUR = "cour";
+    private static final String METIER_TABLE_NAME_UE = "ue";
+    private static final String METIER_TABLE_NAME_ETUDIANT = "etudiants";
+    private static final String METIER_TABLE_NAME_PROFESSEUR = "professeur";
+
+
 
 
 
@@ -68,6 +82,36 @@ public class SQLiteOpen extends SQLiteOpenHelper {
                      "); ";
 
 
+    // SQL de création tableau UE
+    public static final String METIER_TABLE_CREATE_UE =
+            "CREATE TABLE " + METIER_TABLE_NAME_UE + "(" +
+                    METIER_KEY_UE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    METIER_NOM_UE + " TEXT," +
+                    METIER_CREDIT_UE+" INTEGER," +
+                    METIER_RESPONSABLE_UE + " TEXT"+
+                    "); ";
+
+
+    // SQL de création tableau Etudiant
+    public static final String METIER_TABLE_CREATE_ETUDIANT =
+            "CREATE TABLE " + METIER_TABLE_NAME_ETUDIANT + "(" +
+                    METIER_KEY_ETUDIANT + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    METIER_NOM + " TEXT, " +
+                    METIER_PRENOM + " TEXT, "+
+                    METIER_AGE + " INTEGER, "+
+                    METIER_SEXE+ " TEXT, "+
+                    METIER_EMAIL+" TEXT" +"); ";
+
+
+    // SQL de création tableau PROFESSEUR
+    public static final String METIER_TABLE_CREATE_PROFESSEUR =
+            "CREATE TABLE " + METIER_TABLE_NAME_PROFESSEUR + "(" +
+                    METIER_KEY_PROF + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    METIER_NOM_PROF + " TEXT, " +
+                    METIER_PRENOM_PROF + " TEXT, "+
+                    METIER_SPECIALITE_PROF+" TEXT" +"); ";
+
+
 
 
 
@@ -81,6 +125,9 @@ public class SQLiteOpen extends SQLiteOpenHelper {
 
         db.execSQL(METIER_TABLE_CREATE_COUR);
         db.execSQL(METIER_TABLE_CREATE_MATIERE) ;
+        db.execSQL(METIER_TABLE_CREATE_UE);
+        db.execSQL(METIER_TABLE_NAME_ETUDIANT);
+        db.execSQL(METIER_TABLE_NAME_PROFESSEUR);
        // db.execSQL(METIER_TABLE_CREATE_COUR) ;
 
     }
@@ -89,8 +136,10 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_MATIERE);
-       // onCreate(db);
         db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_COUR);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_UE);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_ETUDIANT);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_PROFESSEUR);
         onCreate(db);
     }
 
