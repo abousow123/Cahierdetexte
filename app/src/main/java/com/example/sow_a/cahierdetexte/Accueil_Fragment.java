@@ -150,7 +150,7 @@ public class Accueil_Fragment extends Fragment {
         //Tab 3
         spec = host.newTabSpec("Tab Three");
         spec.setContent(R.id.tab3);
-        spec.setIndicator("Professeur");
+        spec.setIndicator("Unités d'enseignement");
         host.addTab(spec);
 
 

@@ -23,9 +23,9 @@ public class DAO {
 public ArrayList<Cour> allCour(){
     ArrayList<Cour>  listCour = new ArrayList<Cour>() ;
    // db = (new SQLiteOpen(context)).getWritableDatabase();
-    Cursor resul = db.rawQuery("SELECT description from cour;",null) ;
+    Cursor resul = db.rawQuery("SELECT * from cour;",null) ;
 
-   /* resul.moveToFirst() ;
+    resul.moveToFirst() ;
 
     while(!resul.isAfterLast()){
 
@@ -40,7 +40,7 @@ public ArrayList<Cour> allCour(){
         listCour.add(new Cour(idc,matiereCour,date,heureD,heureF,Dec)) ;
 
         resul.moveToNext() ;
-    }*/
+    }
 
     resul.close();
 
