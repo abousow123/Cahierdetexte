@@ -3,12 +3,15 @@ package com.example.sow_a.cahierdetexte;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -27,18 +30,25 @@ public class Accueil_Fragment extends Fragment {
 
     TabHost tabHost;
 
+    Button butAjoutMatiere,butAjoutUE, butAjoutCour  ;
+
     ArrayList<Matiere> matiereArrayList ;
+    ArrayList<Cour> cours ;
+    ArrayList<Ue> listUE ;
 
     ArrayList<String> ab;
     ArrayList<String> ab1;
 
     DAO dao ;
-    ListView listViewtab1,listViewtab2,listViewtab2_suite ;
+    ListView listViewtab1,listViewtab3 ;
 
     ExpandableListAdapte listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+
+    FragmentTransaction fragmentTransaction ;
+    private FragmentManager fragmentManager;
 
 
     public Accueil_Fragment() {
@@ -52,6 +62,11 @@ public class Accueil_Fragment extends Fragment {
 
         dao = new DAO(getContext()) ;
         matiereArrayList = dao.allMatiere() ;
+        listUE = dao.allUE() ;
+        cours = dao.allCour() ;
+
+        fragmentManager = getFragmentManager() ;
+
 
     }
 
@@ -66,7 +81,17 @@ public class Accueil_Fragment extends Fragment {
 
 
         listViewtab1 = (ListView)rootView.findViewById(R.id.listMatiere);
+        listViewtab3 = (ListView)rootView.findViewById(R.id.listUE);
         expListView = (ExpandableListView)rootView.findViewById(R.id.listExpandable);
+
+        butAjoutMatiere = (Button)rootView.findViewById(R.id.butAjoutMatiere) ;
+        butAjoutUE =  (Button)rootView.findViewById(R.id.butAjoutUE) ;
+        butAjoutCour = (Button)rootView.findViewById(R.id.butAjoutCour) ;
+
+        ArrayAdapter<Ue> adapter1 = new MyListAdapter1() ;
+        listViewtab3.setAdapter(adapter1);
+
+
 
 
 
@@ -89,6 +114,40 @@ public class Accueil_Fragment extends Fragment {
             }
         });
 
+        butAjoutMatiere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                M_Fragment matiereFragment = new M_Fragment() ;
+                fragmentTransaction = fragmentManager.beginTransaction() ;
+                fragmentTransaction.replace(R.id.sss,matiereFragment) ;
+                fragmentTransaction.commit() ;
+
+            }
+        });
+
+        butAjoutUE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UE_Fragment r = new UE_Fragment() ;
+                fragmentTransaction = fragmentManager.beginTransaction() ;
+                fragmentTransaction.replace(R.id.sss,r) ;
+                fragmentTransaction.commit() ;
+
+            }
+        });
+
+        butAjoutCour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                C_Fragment c = new C_Fragment() ;
+                fragmentTransaction = fragmentManager.beginTransaction() ;
+                fragmentTransaction.replace(R.id.sss,c) ;
+                fragmentTransaction.commit() ;
+
+            }
+        });
+
         // preparing list data
         prepareListData();
 
@@ -97,24 +156,23 @@ public class Accueil_Fragment extends Fragment {
         // setting list adapter
         expListView.setAdapter(listAdapter);
 
-      /*  expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener(){
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
 
-                Toast.makeText(getContext(),"dfdf",Toast.LENGTH_LONG).show();
-
-                final Cour c = dao.allCour(getContext()).get(i) ;
+                final Cour cour = cours.get(i) ;
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(getContext()) ;
 
-                buider.setMessage("abdsd");
+                buider.setMessage(cour.toString());
 
                 AlertDialog dialog = buider.create();
                 dialog.show();
 
-
+                return false;
             }
-        });*/
+        });
 
 
 
@@ -123,7 +181,7 @@ public class Accueil_Fragment extends Fragment {
 
 
 
-
+         String a= "no" ;
 
 
 
@@ -137,6 +195,7 @@ public class Accueil_Fragment extends Fragment {
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
         spec.setContent(R.id.tab2);
         spec.setIndicator("Cours");
+        a = spec.getTag() ;
         host.addTab(spec);
 
         //Tab 1
@@ -153,6 +212,7 @@ public class Accueil_Fragment extends Fragment {
         spec.setIndicator("Unités d'enseignement");
         host.addTab(spec);
 
+        Toast.makeText(getContext(),a,Toast.LENGTH_LONG).show();
 
         return rootView;
     }
@@ -193,13 +253,13 @@ public class Accueil_Fragment extends Fragment {
     }
 
 
-  /* class MyListAdapter1 extends ArrayAdapter<String> {
+   class MyListAdapter1 extends ArrayAdapter<Ue> {
 
 
 
         public   MyListAdapter1() {
 
-            super(Accueil_Fragment.super.getContext(),R.layout.listview_cour,ab);
+            super(Accueil_Fragment.super.getContext(),R.layout.listview_ue,listUE);
 
         }
 
@@ -210,23 +270,22 @@ public class Accueil_Fragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater  lis = getActivity().getLayoutInflater() ;
-            View row = lis.inflate(R.layout.listview_cour, parent, false);
-            TextView label = (TextView) row.findViewById(R.id.textcour1);
-            //triTabChaine(sg);
-            label.setText(ab.get(position));
+            View row = lis.inflate(R.layout.listview_ue, parent, false);
+            TextView labelnomUE = (TextView) row.findViewById(R.id.nomUE);
+            TextView labelCredit =  (TextView) row.findViewById(R.id.credit1);
+            TextView labelResp =  (TextView) row.findViewById(R.id.Resp) ;
 
-           ImageView icon = (ImageView) row.findViewById(R.id.icon);
+            labelnomUE.setText(listUE.get(position).getNomUE());
+           labelCredit.setText(""+listUE.get(position).getCreditUE());
+            labelResp.setText(listUE.get(position).getResponsable());
 
-            if (etudiants.get(position).getSexe()
-                    .equalsIgnoreCase("Femme"))
-                icon.setImageResource(R.drawable.f1);
-            if (etudiants.get(position).getSexe()
-                    .equalsIgnoreCase("Homme"))
-                icon.setImageResource(R.drawable.h1);
+
+
+
 
             return (row);
         }
-    }*/
+    }
 
 
    /* class MyListAdapter2 extends ArrayAdapter<String> {

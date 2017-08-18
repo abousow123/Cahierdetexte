@@ -17,6 +17,19 @@
     <string name="description">Description:</string>
     <string name="matiere">Matière:</string>
     <string name="cahier">Cahier de texte</string>
-    <string name="ajoutmatiere">Ajouter matière</string>
-    <string name="ajoutCour">Ajouter cours</string>
+    <string name="ajoutmatiere">Etudiants</string>
+    <string name="ajoutCour">Professeurs</string>
+    <string name="unite">Unités enseignement</string>
+    <string name="creditUE">Crédits</string>
+    <string name="responsable">Responsable</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="specialite">Specialite</string>
+    <string name="email">Email</string>
+    <string name="telephone">Telephone</string>
+    <string name="sex">Sexe</string>
+    <string name="f">Femme</string>
+    <string name="h">Homme</string>
+    <string name="em">Email</string>
+    <string name="aj">Ajouter</string>
 </resources>

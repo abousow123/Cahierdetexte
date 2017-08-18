@@ -52,8 +52,9 @@ public class MainActivity extends AppCompatActivity
       //  viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-         toggle = new ActionBarDrawerToggle(
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.setDrawerListener(toggle);
 
 
@@ -68,9 +69,9 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit() ;
 
 
-        ActionBar actionBar = getSupportActionBar() ;
+      /*  ActionBar actionBar = getSupportActionBar() ;
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);*/
 
 
 
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+
         } else {
             super.onBackPressed();
         }
@@ -123,27 +125,31 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-           M_Fragment matiereFragment = new M_Fragment() ;
+           ListEtudiant_Fragment etudiant_fragment = new ListEtudiant_Fragment() ;
             fragmentTransaction = fragmentManager.beginTransaction() ;
-            fragmentTransaction.replace(R.id.sss,matiereFragment) ;
+            fragmentTransaction.replace(R.id.sss,etudiant_fragment) ;
             fragmentTransaction.commit() ;
            // setContentView(R.layout.fragment_matiere);
-            Toast.makeText(getApplicationContext(),"abdxc",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(getApplicationContext(),"abdxc",Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_gallery) {
-            C_Fragment c = new C_Fragment() ;
+            ListProf_Fragment listProf_fragment = new ListProf_Fragment() ;
             fragmentTransaction = fragmentManager.beginTransaction() ;
-            fragmentTransaction.replace(R.id.sss,c) ;
+            fragmentTransaction.replace(R.id.sss,listProf_fragment) ;
             fragmentTransaction.commit() ;
 
         } else if (id == R.id.nav_slideshow) {
 
-            Liste_Matiere_Fragment r = new Liste_Matiere_Fragment() ;
+            UE_Fragment r = new UE_Fragment() ;
             fragmentTransaction = fragmentManager.beginTransaction() ;
             fragmentTransaction.replace(R.id.sss,r) ;
             fragmentTransaction.commit() ;
 
         } else if (id == R.id.nav_manage) {
+            Prof_Fragment p = new Prof_Fragment() ;
+            fragmentTransaction = fragmentManager.beginTransaction() ;
+            fragmentTransaction.replace(R.id.sss,p) ;
+            fragmentTransaction.commit() ;
 
         } else if (id == R.id.nav_share) {
 

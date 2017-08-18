@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sow_a.cahierdetexte.ListProf_Fragment">
+
+
+    <ListView
+        android:id="@+id/listViewPro"
+        android:layout_width="match_parent"
+        android:layout_height="555dp"
+        android:layout_alignBottom="@+id/butAjoutProf"
+        android:layout_centerHorizontal="true" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/butAjoutProf"
+        android:layout_width="70sp"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignRight="@+id/listViewPro"
+        android:layout_marginBottom="29dp"/>
+
+
+</RelativeLayout>

@@ -27,22 +27,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#ffc916"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <ListView
                         android:id="@+id/listMatiere"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        />
+                        android:layout_height="510dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true">
 
-                </LinearLayout>
+                    </ListView>
 
-                <LinearLayout
+                    <Button
+                        android:id="@+id/butAjoutMatiere"
+                        android:layout_width="70sp"
+                        android:layout_height="50sp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="29dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -57,30 +70,44 @@
 
                     </ExpandableListView>
 
+                    <Button
+                        android:id="@+id/butAjoutCour"
+                        android:layout_width="70sp"
+                        android:layout_height="50sp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="29dp" />
 
 
 
 
 
-                </LinearLayout>
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#5b89ff"
                     android:orientation="vertical">
 
-                    <TimePicker
-                        android:id="@+id/timePicker"
+                    <ListView
+                        android:id="@+id/listUE"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="This is tab 3" />
-                </LinearLayout>
+                    </ListView>
+                    <Button
+                        android:id="@+id/butAjoutUE"
+                        android:layout_width="70sp"
+                        android:layout_height="50sp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="29dp" />
+                </RelativeLayout>
 
             </FrameLayout>
 

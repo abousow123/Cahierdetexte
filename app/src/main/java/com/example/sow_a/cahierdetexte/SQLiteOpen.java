@@ -11,13 +11,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="DB_etudiant.db";
-    private static final int SCHEMA_VERSION=2;
+    private static final int SCHEMA_VERSION=3;
 
     private static final String METIER_KEY = "idMat";
     //   private static final String METIER_KEY_CLASSE = "id_classe";
     private static final String METIER_NOM_MATIERE = "nomMatiere";
     private static final String METIER_VOLOME_HORAIRE = "volumeHoraire";
     private static final String METIER_PROF = "professeur";
+    private static final String METIER_UE = "Ue";
 
 
     private static final String METIER_KEY_UE = "idUE";
@@ -35,20 +36,23 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_COUR_HEURE_FIN = "heurefin" ;
     private static final String METIER_COUR_DESCRIPTION= "description" ;
 
+
     private static final String METIER_KEY_ETUDIANT = "idEtudiant" ;
     private static final String METIER_NOM = "nom";
     private static final String METIER_PRENOM = "prenom";
-    private static final String METIER_AGE = "age";
     private static final String METIER_SEXE = "sexe";
+    private static final String METIER_TELEPHONE = "telephone";
     private static final String METIER_EMAIL = "email";
+
 
     private static final String METIER_KEY_PROF = "idProf" ;
     private static final String METIER_NOM_PROF = "nomProf";
     private static final String METIER_PRENOM_PROF = "prenomProf";
     private static final String METIER_SPECIALITE_PROF = "specialite";
+    private static final String METIER_EMAIL_PROF = "emailProf";
 
 
-
+    // Nom des tables
     private static final String METIER_TABLE_NAME_MATIERE = "matiere";
     private static final String METIER_TABLE_NAME_COUR = "cour";
     private static final String METIER_TABLE_NAME_UE = "ue";
@@ -75,10 +79,11 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     // SQL de création tableau Matiére
     public static final String METIER_TABLE_CREATE_MATIERE =
             "CREATE TABLE " + METIER_TABLE_NAME_MATIERE + "(" +
-                    METIER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    METIER_NOM_MATIERE + " TEXT, " +
+                    METIER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    METIER_NOM_MATIERE + " TEXT," +
                     METIER_PROF+" TEXT," +
-                    METIER_VOLOME_HORAIRE + " INTEGER "+
+                    METIER_VOLOME_HORAIRE + " INTEGER,"+
+                    METIER_UE + " TEXT"+
                      "); ";
 
 
@@ -98,18 +103,20 @@ public class SQLiteOpen extends SQLiteOpenHelper {
                     METIER_KEY_ETUDIANT + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     METIER_NOM + " TEXT, " +
                     METIER_PRENOM + " TEXT, "+
-                    METIER_AGE + " INTEGER, "+
                     METIER_SEXE+ " TEXT, "+
+                    METIER_TELEPHONE + " INTEGER, "+
                     METIER_EMAIL+" TEXT" +"); ";
 
 
     // SQL de création tableau PROFESSEUR
     public static final String METIER_TABLE_CREATE_PROFESSEUR =
             "CREATE TABLE " + METIER_TABLE_NAME_PROFESSEUR + "(" +
-                    METIER_KEY_PROF + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    METIER_NOM_PROF + " TEXT, " +
-                    METIER_PRENOM_PROF + " TEXT, "+
-                    METIER_SPECIALITE_PROF+" TEXT" +"); ";
+                    METIER_KEY_PROF + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    METIER_NOM_PROF + " TEXT," +
+                    METIER_PRENOM_PROF + " TEXT,"+
+                    METIER_SPECIALITE_PROF+" TEXT," +
+                    METIER_EMAIL_PROF+" TEXT" +
+                    "); ";
 
 
 
@@ -126,8 +133,8 @@ public class SQLiteOpen extends SQLiteOpenHelper {
         db.execSQL(METIER_TABLE_CREATE_COUR);
         db.execSQL(METIER_TABLE_CREATE_MATIERE) ;
         db.execSQL(METIER_TABLE_CREATE_UE);
-        db.execSQL(METIER_TABLE_NAME_ETUDIANT);
-        db.execSQL(METIER_TABLE_NAME_PROFESSEUR);
+        db.execSQL(METIER_TABLE_CREATE_ETUDIANT);
+        db.execSQL(METIER_TABLE_CREATE_PROFESSEUR);
        // db.execSQL(METIER_TABLE_CREATE_COUR) ;
 
     }

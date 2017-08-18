@@ -9,13 +9,15 @@ public class Professeur {
     private String nom ;
     private String prenom ;
     private String specialite ;
+    private String email ;
 
 
-    public Professeur(int id, String nom, String prenom, String specialite) {
+    public Professeur(int id, String nom, String prenom, String specialite,String email) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.specialite = specialite;
+        this.email = email;
     }
 
     public int getId() {
@@ -48,5 +50,13 @@ public class Professeur {
 
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

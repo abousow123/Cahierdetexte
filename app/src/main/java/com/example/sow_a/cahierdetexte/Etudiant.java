@@ -7,7 +7,7 @@ package com.example.sow_a.cahierdetexte;
 public class Etudiant {
     private String nom ;
     private String prenom ;
-    private int age,id ;
+    private int telephone,id ;
     private  String sexe ;
     private String email ;
     private String formation ;
@@ -16,12 +16,12 @@ public class Etudiant {
     //private int _id ;
 
     //Constructeur
-    public Etudiant(String nom, String prenom, int age, String sexe,
+    public Etudiant(String nom, String prenom, String sexe,int telephone,
                     String email,int id) {
         this.nom = nom;
         this.prenom = prenom;
-        this.age = age;
         this.sexe = sexe;
+        this.telephone = telephone;
         this.email = email;
         this.id = id ;
 
@@ -41,7 +41,7 @@ public class Etudiant {
 
 
     public String toString(){
-        return  "Nom:  "+this.nom + "\n"+"Prenom:  "+this.prenom + "\n" + "Age:  " + this.age + " ans \n" + "Sexe :  "
+        return  "Nom:  "+this.nom + "\n"+"Prenom:  "+this.prenom + "\n" + "Telephone:  " + this.telephone + " ans \n" + "Sexe :  "
                 + this.sexe + "\nEmail:  "+ this.email ;
     }
 
@@ -59,12 +59,12 @@ public class Etudiant {
         this.prenom = prenom;
     }
 
-    public int getAge() {
-        return age;
+    public int getTelephone() {
+        return telephone;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
     }
 
     public String getSexe() {
