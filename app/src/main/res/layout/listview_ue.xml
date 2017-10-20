@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
 
+
     <TextView
         android:id="@+id/nomUE"
         android:layout_width="wrap_content"
@@ -11,45 +12,89 @@
         android:layout_marginStart="121dp"
 
         android:text="TextView"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <TextView
-        android:id="@+id/affCredit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:text="@string/creditUE"
-        android:textSize="18dp"
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="#ffffff"
         android:layout_below="@+id/nomUE"
-        android:layout_alignParentStart="true" />
+        >
 
-    <TextView
-        android:id="@+id/credit1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/affCredit"
-        android:layout_toEndOf="@+id/nomUE"
-        android:text="TextView"
-        android:textSize="18dp" />
+        <TableRow
+            android:showDividers="middle"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp">
 
-    <TextView
-        android:id="@+id/affResp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/affCredit"
-        android:layout_below="@+id/affCredit"
-        android:layout_marginTop="39dp"
-        android:text="@string/responsable"
-        android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/Resp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/affResp"
-        android:layout_alignEnd="@+id/credit1"
-        android:text="TextView"
-        android:textSize="18dp" />
+            <TextView
+                android:id="@+id/Res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Matiere"
+
+                android:textColor="@color/colorAccent"
+                android:textSize="23dp" />
+
+        <TextView
+            android:id="@+id/Re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="40dp"
+            android:text="@string/creditUE"
+            android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/affResp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="25dp"
+                android:text="@string/responsable"
+                android:textSize="23dp" />
+
+
+
+        </TableRow>
+
+        <TableRow
+            android:showDividers="middle"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/mat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/cr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="TextView"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="TextView"
+                android:textSize="18dp" />
+
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
 </RelativeLayout>

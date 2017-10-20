@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.sow_a.cahierdetexte.ajouts.Add_matiere"
+    tools:showIn="@layout/activity_add_matiere">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom Matiére"
+                android:textSize="25dp"
+                android:layout_marginStart="59dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="26dp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:layout_below="@+id/textView2"
+                android:layout_alignStart="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volume horaire"
+                android:textSize="25dp"
+                android:layout_marginTop="39dp"
+                android:layout_below="@+id/editText"
+                android:layout_alignEnd="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Credit"
+                android:textSize="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/editText3"
+                android:layout_alignStart="@+id/textView4" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+
+                android:ems="10"
+                android:inputType="number"
+                android:layout_below="@+id/textView5"
+                android:layout_alignStart="@+id/editText" />
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Professeur titulaire"
+                android:textSize="25dp"
+                android:layout_below="@+id/editText4"
+                android:layout_alignEnd="@+id/editText3" />
+
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+
+                android:ems="10"
+                android:inputType="number"
+                android:layout_below="@+id/textView3"
+                android:layout_alignStart="@+id/editText" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/textView4"
+                android:layout_alignStart="@+id/editText3" />
+
+
+            <Button
+                android:id="@+id/butAddMatiere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                android:layout_below="@+id/spinner2"
+                android:layout_alignEnd="@+id/editText3"
+                android:layout_marginTop="58dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

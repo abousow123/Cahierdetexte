@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import com.example.sow_a.cahierdetexte.R;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.sow_a.cahierdetexte.ajouts.Add_ue"
+    tools:showIn="@layout/activity_add_ue">
+
+
+    <ScrollView
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="368dp"
+            android:layout_height="500dp"
+           >
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unite"
+                android:textSize="25dp"
+                android:layout_marginTop="26dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/unite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+
+                android:layout_marginTop="11dp"
+                android:layout_below="@+id/textView12"
+                android:layout_alignStart="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43dp"
+                android:textSize="25dp"
+                android:text="matieres"
+                android:layout_below="@+id/unite"
+                android:layout_alignStart="@+id/cr" />
+
+            <ListView
+                android:id="@+id/cr"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:ems="10"
+                android:inputType="text"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/textView13"
+                android:layout_alignStart="@+id/unite" />
+
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43dp"
+                android:textSize="25dp"
+                android:text="Crédits:"
+                android:layout_below="@+id/cr"
+                android:layout_alignStart="@+id/cr" />
+
+
+            <EditText
+                android:id="@+id/cred"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginTop="11dp"
+                android:layout_below="@+id/textView15"
+                android:layout_alignStart="@+id/textView15" />
+
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="@string/responsable"
+                android:layout_below="@+id/cred"
+                android:layout_alignStart="@+id/cred"
+                android:layout_marginTop="41dp" />
+
+            <Spinner
+                android:id="@+id/spinnerResp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:layout_below="@+id/textView14"
+                android:layout_alignStart="@+id/cr" />
+
+            <Button
+                android:id="@+id/addEU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="52dp"
+                android:text="Button"
+                android:layout_below="@+id/spinnerResp"
+                android:layout_toEndOf="@+id/textView13" />
+
+        </RelativeLayout>
+
+    </ScrollView>>
+
+
+</android.support.constraint.ConstraintLayout>

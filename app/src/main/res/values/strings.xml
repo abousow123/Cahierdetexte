@@ -32,4 +32,15 @@
     <string name="h">Homme</string>
     <string name="em">Email</string>
     <string name="aj">Ajouter</string>
+    <string name="title_activity_add__cours">Ajouter Cours</string>
+    <string name="title_activity_add_matiere">Ajouter Matière</string>
+    <string name="title_activity_add_etudiant">Ajouter Etudiant</string>
+    <string name="title_activity_add_professeur">Ajouter Professeur</string>
+    <string name="title_activity_add_ue">Add_ue</string>
+
+    <string name="cours">Cours</string>
+    <string name="Matiere">Matières</string>
+    <string name="ue">Unités enseignement</string>
+
+
 </resources>

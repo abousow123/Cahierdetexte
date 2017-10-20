@@ -1,23 +1,26 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.ajouts;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.sow_a.cahierdetexte.R;
+import com.example.sow_a.cahierdetexte.dao.DAO;
 
-public class Etudiant_Fragment extends Fragment {
+public class Add_etudiant extends AppCompatActivity {
 
     private EditText prenom;
     private EditText nom;
@@ -35,38 +38,28 @@ public class Etudiant_Fragment extends Fragment {
     FragmentTransaction fragmentTransaction ;
     private FragmentManager fragmentManager;
 
-
-    public Etudiant_Fragment() {
-        // Required empty public constructor
-    }
-
-
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dao = new DAO(getContext()) ;
+        setContentView(R.layout.activity_add_etudiant);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    }
+        dao = new DAO(getApplicationContext()) ;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_etudiant_, container, false);
 
-        ajoute = (Button)view.findViewById(R.id.ajou);
+        ajoute = (Button)findViewById(R.id.ajou);
 
-        gr = (RadioGroup)view.findViewById(R.id.radioGroup2);
-        r1 = (RadioButton)view.findViewById(R.id.radio2);
-        r2 = (RadioButton)view.findViewById(R.id.radio3);
+        gr = (RadioGroup)findViewById(R.id.radioGroup2);
+        r1 = (RadioButton)findViewById(R.id.radio2);
+        r2 = (RadioButton)findViewById(R.id.radio3);
 
-        nom = (EditText)view.findViewById(R.id.editText1);
-        prenom = (EditText)view.findViewById(R.id.editText2);
-        tel = (EditText)view.findViewById(R.id.editText3);
-        email = (EditText)view.findViewById(R.id.editText4);
+        nom = (EditText)findViewById(R.id.editText1);
+        prenom = (EditText)findViewById(R.id.editText2);
+        tel = (EditText)findViewById(R.id.editText3);
+        email = (EditText)findViewById(R.id.editText4);
 
-       extra = getArguments();
+        extra = getIntent().getExtras();
 
         if(extra != null) chargerInfoEtudiant();
 
@@ -93,7 +86,7 @@ public class Etudiant_Fragment extends Fragment {
                         || telephone.equalsIgnoreCase("") || e.equalsIgnoreCase("")) {
 
                     Toast.makeText(
-                            getContext(),
+                            getApplicationContext(),
                             "Veuillez entrer tout les informations s'il vous plait !!!",
                             Toast.LENGTH_LONG).show();
 
@@ -114,14 +107,14 @@ public class Etudiant_Fragment extends Fragment {
                         dao.addEtudiant(contentValues);
                         text = n +", Ajouter avec succés !!!";
                     }
-                   else {
+                    else {
                         dao.updateEtudiant(contentValues, extra.getInt("idEtudiant"));
                         text= "Mofication effectué avec succès";
                     }
 
 
 
-                    Toast.makeText(getContext(),
+                    Toast.makeText(getApplicationContext(),
                             text,
                             Toast.LENGTH_LONG).show();
 
@@ -135,8 +128,22 @@ public class Etudiant_Fragment extends Fragment {
             }
         });
 
-        return view ;
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        ActionBar actionBar = getSupportActionBar() ;
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
+
 
     public void chargerInfoEtudiant() {
         this.nom.setText(extra.getString("nom"));
@@ -149,5 +156,16 @@ public class Etudiant_Fragment extends Fragment {
             r2.setChecked(true);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                this.finish(); ;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

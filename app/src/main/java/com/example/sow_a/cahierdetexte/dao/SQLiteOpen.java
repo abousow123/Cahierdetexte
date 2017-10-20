@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="DB_etudiant.db";
-    private static final int SCHEMA_VERSION=3;
+    private static final int SCHEMA_VERSION=5;
 
     private static final String METIER_KEY = "idMat";
     //   private static final String METIER_KEY_CLASSE = "id_classe";
@@ -19,18 +19,21 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String METIER_VOLOME_HORAIRE = "volumeHoraire";
     private static final String METIER_PROF = "professeur";
     private static final String METIER_UE = "Ue";
+    private static final String METIER_CREDIT_HORAIRE = "credit";
 
 
     private static final String METIER_KEY_UE = "idUE";
     private static final String METIER_NOM_UE = "nomUE";
     private static final String METIER_CREDIT_UE = "creditUE";
     private static final String METIER_RESPONSABLE_UE = "responsableUE";
+    private static final String METIER_MATIERES_UE = "matieresUE";
 
 
 
 
     private static final String METIER_KEY_COUR = "idcour" ;
     private static final String METIER_COUR_MATIERE = "matiere" ;
+    private static final String METIER_COUR_PROF = "professeur" ;
     private static final String METIER_COUR_DATE = "date" ;
     private static final String METIER_COUR_HEURE_DEB = "heuredeb" ;
     private static final String METIER_COUR_HEURE_FIN = "heurefin" ;
@@ -68,6 +71,7 @@ public class SQLiteOpen extends SQLiteOpenHelper {
             "CREATE TABLE " + METIER_TABLE_NAME_COUR + "(" +
                     METIER_KEY_COUR + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     METIER_COUR_MATIERE + " TEXT, " +
+                    METIER_COUR_PROF + " TEXT, " +
                     METIER_COUR_DATE + " TEXT, " +
                     METIER_COUR_HEURE_DEB+" TEXT, " +
                     METIER_COUR_HEURE_FIN + " TEXT, "+
@@ -81,9 +85,8 @@ public class SQLiteOpen extends SQLiteOpenHelper {
             "CREATE TABLE " + METIER_TABLE_NAME_MATIERE + "(" +
                     METIER_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     METIER_NOM_MATIERE + " TEXT," +
-                    METIER_PROF+" TEXT," +
                     METIER_VOLOME_HORAIRE + " INTEGER,"+
-                    METIER_UE + " TEXT"+
+                    METIER_PROF+" TEXT" +
                      "); ";
 
 
@@ -92,6 +95,7 @@ public class SQLiteOpen extends SQLiteOpenHelper {
             "CREATE TABLE " + METIER_TABLE_NAME_UE + "(" +
                     METIER_KEY_UE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     METIER_NOM_UE + " TEXT," +
+                    METIER_MATIERES_UE + " TEXT"+
                     METIER_CREDIT_UE+" INTEGER," +
                     METIER_RESPONSABLE_UE + " TEXT"+
                     "); ";
@@ -114,6 +118,7 @@ public class SQLiteOpen extends SQLiteOpenHelper {
                     METIER_KEY_PROF + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     METIER_NOM_PROF + " TEXT," +
                     METIER_PRENOM_PROF + " TEXT,"+
+                    METIER_SEXE+ " TEXT, "+
                     METIER_SPECIALITE_PROF+" TEXT," +
                     METIER_EMAIL_PROF+" TEXT" +
                     "); ";
@@ -143,10 +148,10 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
         db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_MATIERE);
-        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_COUR);
-        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_UE);
-        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_ETUDIANT);
-        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_CREATE_PROFESSEUR);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_COUR);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_UE);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_ETUDIANT);
+        db.execSQL("DROP TABLE IF EXISTS "+METIER_TABLE_NAME_PROFESSEUR);
         onCreate(db);
     }
 

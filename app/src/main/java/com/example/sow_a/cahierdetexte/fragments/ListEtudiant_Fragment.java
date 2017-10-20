@@ -1,8 +1,7 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.fragments;
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.sow_a.cahierdetexte.R;
+import com.example.sow_a.cahierdetexte.ajouts.Add_etudiant;
+import com.example.sow_a.cahierdetexte.dao.DAO;
+import com.example.sow_a.cahierdetexte.metier.Etudiant;
 
 import java.util.ArrayList;
 
@@ -33,6 +37,8 @@ public class ListEtudiant_Fragment extends Fragment {
 
     DAO dao ;
     ArrayList<Etudiant> etudiants ;
+
+    ArrayAdapter<Etudiant> adapter ;
 
 
     public ListEtudiant_Fragment() {
@@ -58,7 +64,8 @@ public class ListEtudiant_Fragment extends Fragment {
 
         iconne = (ImageView)view.findViewById(R.id.button1);
 
-        ArrayAdapter<Etudiant> adapter = new MyListAdapter() ;
+         adapter = new MyListAdapter() ;
+
         listView.setAdapter(adapter);
        // fragmentManager = getArguments() ;
 
@@ -81,33 +88,25 @@ public class ListEtudiant_Fragment extends Fragment {
 
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        // ContentValues cv = new ContentValues() ;
+
+                        Intent it = new Intent(ListEtudiant_Fragment.super.getContext(),Add_etudiant.class) ;
 
 
-                      /*  Intent it = new Intent(MainActivity.this,Ajout.class);
+                  ;
 
-                        it.putExtra("id",etd.getId());
+
+                        it.putExtra("idEtudiant",etd.getId());
                         it.putExtra("nom", etd.getNom());
                         it.putExtra("prenom", etd.getPrenom());
-                        it.putExtra("age", etd.getAge());
+
                         it.putExtra("sexe", etd.getSexe());
+                        it.putExtra("telephone", etd.getTelephone());
                         it.putExtra("email",etd.getEmail());
 
-                        startActivity(it);*/
+                        startActivity(it);
 
-                        Etudiant_Fragment etudiant_fragment = new Etudiant_Fragment() ;
-                        Bundle bundle = new Bundle() ;
-                        bundle.putInt("idEtudiant",etd.getId());
-                        bundle.putString("nom", etd.getNom());
-                        bundle.putString("prenom", etd.getPrenom());
-                        bundle.putString("sexe", etd.getSexe());
-                        bundle.putInt("telephone", etd.getTelephone());
-                        bundle.putString("email", etd.getEmail());
 
-                        etudiant_fragment.setArguments(bundle);
-                        fragmentTransaction = fragmentManager.beginTransaction() ;
-                        fragmentTransaction.replace(R.id.sss,etudiant_fragment) ;
-                        fragmentTransaction.commit() ;
+
 
 
 
@@ -121,7 +120,18 @@ public class ListEtudiant_Fragment extends Fragment {
                     public void onClick(DialogInterface arg0, int arg1) {
                         // TODO Auto-generated method stub
 
-                        dao.deleteEtudiant(etd.getId()) ;
+                        dao.deleteEtudiant(etd.getId());
+
+                        adapter.notifyDataSetChanged();
+
+                         ListEtudiant_Fragment l = new ListEtudiant_Fragment() ;
+                        fragmentTransaction = fragmentManager.beginTransaction() ;
+                        fragmentTransaction.replace(R.id.sss,l) ;
+                        fragmentTransaction.commit() ;
+
+
+
+             //           listView.setAdapter(adapter);
 
 
                        /* Toast.makeText(getApplicationContext(),
@@ -143,10 +153,12 @@ public class ListEtudiant_Fragment extends Fragment {
 
             @Override
             public void onClick(View arg0) {
-                Etudiant_Fragment etudiant_fragment = new Etudiant_Fragment() ;
+              /*  Etudiant_Fragment etudiant_fragment = new Etudiant_Fragment() ;
                 fragmentTransaction = fragmentManager.beginTransaction() ;
                 fragmentTransaction.replace(R.id.sss,etudiant_fragment) ;
-                fragmentTransaction.commit() ;
+                fragmentTransaction.commit() ;*/
+
+              startActivity(new Intent(ListEtudiant_Fragment.super.getContext(), Add_etudiant.class));
 
 
             }

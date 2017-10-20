@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 /**
  * Created by sow-a on 7/18/17.
@@ -8,19 +8,18 @@ public class Matiere {
     private String nom_matiere ;
     private String prof ;
     private int volumeH, id ;
-    private String nomUE ;
 
-    public  Matiere(String nom_matiere,String prof, int volumeH,String nomUE,int id){
+
+    public  Matiere(String nom_matiere,String prof,int volumeH,int id){
         this.nom_matiere = nom_matiere ;
         this.prof = prof ;
         this.volumeH = volumeH ;
-        this.nomUE = nomUE ;
         this.id = id ;
     }
 
     public String toString(){
         return  "Matière:  "+this.nom_matiere + "\n"+"Professeur:  "+this.prof + "\n" + "Volume horaire:  " + this.volumeH +"heures"+
-                "\n"+"Unités d'enseignement:"+this.nomUE;
+                "\n"+"Unités d'enseignement:";
     }
 
     public String getNom_matiere() {
@@ -55,11 +54,6 @@ public class Matiere {
         this.id = id;
     }
 
-    public String getNomUE() {
-        return nomUE;
-    }
 
-    public void setNomUE(String nomUE) {
-        this.nomUE = nomUE;
-    }
+
 }

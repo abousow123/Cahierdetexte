@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 /**
  * Created by sow-a on 8/2/17.
@@ -11,10 +11,12 @@ public class Cour {
     private String heureFin ;
     private String description ;
     private String date ;
+    private String prof ;
 
-    public Cour(int id, String matiere, String date, String heureDeb, String heureFin,String description) {
+    public Cour(int id, String matiere,String prof, String date, String heureDeb, String heureFin,String description) {
         this.id = id;
         this.matiere = matiere;
+        this.prof = prof ;
         this.date = date ;
         this.heureDeb = heureDeb;
         this.heureFin = heureFin;
@@ -75,5 +77,13 @@ public class Cour {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getProf() {
+        return prof;
+    }
+
+    public void setProf(String prof) {
+        this.prof = prof;
     }
 }

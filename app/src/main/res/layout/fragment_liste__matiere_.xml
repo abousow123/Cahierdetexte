@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sow_a.cahierdetexte.Liste_Matiere_Fragment">
+    tools:context="com.example.sow_a.cahierdetexte.fragments.Liste_Matiere_Fragment">
 
 
     <ListView

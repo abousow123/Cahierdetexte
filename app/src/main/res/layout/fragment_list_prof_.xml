@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sow_a.cahierdetexte.ListProf_Fragment">
+    tools:context="com.example.sow_a.cahierdetexte.fragments.ListProf_Fragment">
 
 
     <ListView
         android:id="@+id/listViewPro"
         android:layout_width="match_parent"
-        android:layout_height="555dp"
-        android:layout_alignBottom="@+id/butAjoutProf"
-        android:layout_centerHorizontal="true" >
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
 
     </ListView>
 

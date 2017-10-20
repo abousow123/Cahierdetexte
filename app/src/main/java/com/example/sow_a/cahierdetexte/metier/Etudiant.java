@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 /**
  * Created by sow-a on 8/11/17.

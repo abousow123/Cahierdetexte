@@ -1,9 +1,15 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.sow_a.cahierdetexte.metier.Cour;
+import com.example.sow_a.cahierdetexte.metier.Etudiant;
+import com.example.sow_a.cahierdetexte.metier.Matiere;
+import com.example.sow_a.cahierdetexte.metier.Professeur;
+import com.example.sow_a.cahierdetexte.metier.Ue;
 
 import java.util.ArrayList;
 
@@ -35,13 +41,14 @@ public class DAO {
 
         int idc = resul.getInt(resul.getColumnIndex("idcour"));
         String matiereCour = resul.getString(resul.getColumnIndex("matiere"));
+            String profCour = resul.getString(resul.getColumnIndex("professeur"));
         String date = resul.getString(resul.getColumnIndex("date"));
         String heureD = resul.getString(resul.getColumnIndex("heuredeb")) ;
         String heureF = resul.getString(resul.getColumnIndex("heurefin")) ;
         String Dec = resul.getString(resul.getColumnIndex("description")) ;
 
 
-        listCour.add(new Cour(idc,matiereCour,date,heureD,heureF,Dec)) ;
+        listCour.add(new Cour(idc,matiereCour,profCour,date,heureD,heureF,Dec)) ;
 
         resul.moveToNext() ;
         }
@@ -90,10 +97,11 @@ public class DAO {
             String nom = result.getString(result.getColumnIndex("nomMatiere"));
             String prof = result.getString(result.getColumnIndex("professeur"));
             int v = result.getInt(result.getColumnIndex("volumeHoraire")) ;
-            String ue = result.getString(result.getColumnIndex("Ue"));
 
 
-            listMatiere.add(new Matiere(nom,prof,v,ue,id)) ;
+
+
+            listMatiere.add(new Matiere(nom,prof,v,id)) ;
 
             result.moveToNext() ;
         }
@@ -172,8 +180,9 @@ public class DAO {
             String nom = result.getString(result.getColumnIndex("nomUE"));
             int credit = result.getInt(result.getColumnIndex("creditUE")) ;
             String responsable = result.getString(result.getColumnIndex("responsableUE"));
+            String mat = result.getString(result.getColumnIndex("matieresUE"));
 
-            listUE.add(new Ue(id,nom,credit,responsable)) ;
+            listUE.add(new Ue(id,nom,credit,responsable,mat)) ;
 
             result.moveToNext() ;
         }
@@ -189,6 +198,12 @@ public class DAO {
         db.insert("professeur",null, cv);
 
     }
+
+    public void deleteProf(int id) {
+        db.delete("professeur", "idProf=" + id, null);
+    }
+
+
 
     public ArrayList<Professeur> allProf(){
         ArrayList<Professeur>  listProf = new ArrayList<Professeur>() ;

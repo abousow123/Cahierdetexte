@@ -19,6 +19,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ajouts.Add_Cours"
+            android:label="@string/title_activity_add__cours"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ajouts.Add_matiere"
+            android:label="@string/title_activity_add_matiere"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ajouts.Add_etudiant"
+            android:label="@string/title_activity_add_etudiant"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ajouts.Add_professeur"
+            android:label="@string/title_activity_add_professeur"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ajouts.Add_ue"
+            android:label="@string/title_activity_add_ue"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

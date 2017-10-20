@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 /**
  * Created by SOW_B on 11/08/2017.
@@ -18,6 +18,10 @@ public class Professeur {
         this.prenom = prenom;
         this.specialite = specialite;
         this.email = email;
+    }
+
+    public String toString(){
+        return  "Nom:  "+this.nom + "\n"+"Prenom:  "+this.prenom + "\n" + "Spécialité:  " + this.specialite + " ans \n" + "Email:  "+ this.email ;
     }
 
     public int getId() {

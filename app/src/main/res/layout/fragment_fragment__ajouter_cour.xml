@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sow_a.cahierdetexte.Fragment_AjouterCour">
+    tools:context="com.example.sow_a.cahierdetexte.fragments.Fragment_AjouterCour">
 
 
     <TimePicker

@@ -1,4 +1,4 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.metier;
 
 /**
  * Created by SOW_B on 11/08/2017.
@@ -9,12 +9,14 @@ public class Ue {
     private String nomUE ;
     private int creditUE ;
     private String responsable ;
+    private  String matieres ;
 
-    public Ue(int id, String nomUE, int creditUE, String responsable) {
+    public Ue(int id, String nomUE, int creditUE, String responsable,String matieres) {
         this.id = id;
         this.nomUE = nomUE;
         this.creditUE = creditUE;
         this.responsable = responsable;
+        this.matieres= matieres ;
     }
 
     public int getId() {
@@ -47,5 +49,13 @@ public class Ue {
 
     public void setResponsable(String responsable) {
         this.responsable = responsable;
+    }
+
+    public String getMatieres() {
+        return matieres;
+    }
+
+    public void setMatieres(String matieres) {
+        this.matieres = matieres;
     }
 }

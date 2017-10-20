@@ -2,9 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sow_a.cahierdetexte.C_Fragment">
+    tools:context="com.example.sow_a.cahierdetexte.fragments.C_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+
+    <RelativeLayout
+        android:id="@+id/ne1"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="horizontal" >
+
     <TimePicker
         android:id="@+id/timePicker4"
         android:layout_width="150dp"
@@ -89,9 +105,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textView11" />
+        android:layout_toEndOf="@+id/textView11"
+        android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</ScrollView>
 
 
 </RelativeLayout>

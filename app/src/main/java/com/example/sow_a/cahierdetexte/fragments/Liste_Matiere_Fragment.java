@@ -1,17 +1,17 @@
-package com.example.sow_a.cahierdetexte;
+package com.example.sow_a.cahierdetexte.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.support.v4.view.ViewPager;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.sow_a.cahierdetexte.R;
+import com.example.sow_a.cahierdetexte.dao.DAO;
+import com.example.sow_a.cahierdetexte.metier.Matiere;
 
 import java.util.ArrayList;
 
