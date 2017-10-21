@@ -94,8 +94,9 @@ public class Add_matiere extends AppCompatActivity {
                 else {
 
                     contentValues.put("nomMatiere",m);
-                    contentValues.put("professeur",p);
                     contentValues.put("volumeHoraire",v);
+                    contentValues.put("professeur",p);
+
 
 
                     dao.addMatiere(contentValues);

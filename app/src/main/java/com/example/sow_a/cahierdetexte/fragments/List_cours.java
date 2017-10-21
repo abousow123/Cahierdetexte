@@ -170,7 +170,7 @@ public class List_cours extends Fragment {
 
      // Toast.makeText(getContext(),dao.allCour().get(0).getDescription(),Toast.LENGTH_LONG).show();
 
-        for (int i = 0;i<dao.allCour().size();i++){
+      /*  for (int i = 0;i<dao.allCour().size();i++){
             listDataHeader.add(dao.allCour().get(i).getDate()) ;
 
         }
@@ -192,7 +192,7 @@ public class List_cours extends Fragment {
 
             listDataChild.put(listDataHeader.get(i),li) ;
 
-        }
+        }*/
 
 
 
