@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.sow_a.cahierdetexte.R;
 import com.example.sow_a.cahierdetexte.dao.DAO;
+import com.example.sow_a.cahierdetexte.fragments.List_matieres;
 import com.example.sow_a.cahierdetexte.metier.Matiere;
 
 import java.util.ArrayList;
@@ -32,6 +35,9 @@ public class Add_matiere extends AppCompatActivity {
     EditText editText1,editText3 ;
     DAO dao ;
 
+    FragmentTransaction fragmentTransaction ;
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +45,19 @@ public class Add_matiere extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        fragmentManager = getSupportFragmentManager() ;
+        fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if(getFragmentManager().getBackStackEntryCount() == 0){
+                    List_matieres list_matieres = new List_matieres() ;
+                    fragmentTransaction = fragmentManager.beginTransaction() ;
+                    fragmentTransaction.replace(R.id.sss,list_matieres) ;
+                    fragmentTransaction.commit() ;
+                    finish();
+                }
+            }
+        });
 
 
         editText1 = (EditText)findViewById(R.id.editText) ;
@@ -125,6 +143,8 @@ public class Add_matiere extends AppCompatActivity {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
                 this.finish();
+
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

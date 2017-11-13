@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.sow_a.cahierdetexte.metier.Cour;
 import com.example.sow_a.cahierdetexte.metier.Etudiant;
@@ -169,18 +170,21 @@ public class DAO {
     }
 
     public ArrayList<Ue> allUE(){
-        ArrayList<Ue>  listUE = new ArrayList<Ue>() ;
+        ArrayList<Ue>  listUE = new ArrayList<>() ;
+
         Cursor result = db.rawQuery("SELECT * from ue;",null) ;
 
         result.moveToFirst() ;
+
 
         while(!result.isAfterLast()){
 
             int id = result.getInt(result.getColumnIndex("idUE"));
             String nom = result.getString(result.getColumnIndex("nomUE"));
+            String mat = result.getString(result.getColumnIndex("matieresUE"));
             int credit = result.getInt(result.getColumnIndex("creditUE")) ;
             String responsable = result.getString(result.getColumnIndex("responsableUE"));
-            String mat = result.getString(result.getColumnIndex("matieresUE"));
+
 
             listUE.add(new Ue(id,nom,credit,responsable,mat)) ;
 

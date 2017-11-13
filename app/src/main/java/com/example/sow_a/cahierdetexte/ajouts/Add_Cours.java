@@ -91,7 +91,7 @@ public class Add_Cours extends AppCompatActivity {
 
                 String sp = spinner.getSelectedItem().toString() ;
                 String s = spinner1.getSelectedItem().toString() ;
-                String d = getDateTime().toString() ;
+                String d = getDateTime() ;
 
                 ContentValues contentValues = new ContentValues() ;
 
@@ -138,11 +138,13 @@ public class Add_Cours extends AppCompatActivity {
     }
 
 
-    public static Date getDateTime() {
+    public static String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
-        return date;
+
+         ;
+        return dateFormat.format(date);
     }
 
 }

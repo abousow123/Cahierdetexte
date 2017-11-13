@@ -149,6 +149,8 @@ public class ListEtudiant_Fragment extends Fragment {
 
         });
 
+        iconne.setImageResource(R.mipmap.ab);
+
         iconne.setOnClickListener(new View.OnClickListener() {
 
             @Override

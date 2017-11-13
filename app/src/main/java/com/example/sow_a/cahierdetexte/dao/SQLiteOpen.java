@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteOpen extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="DB_etudiant.db";
-    private static final int SCHEMA_VERSION=5;
+    private static final int SCHEMA_VERSION=2;
 
     private static final String METIER_KEY = "idMat";
     //   private static final String METIER_KEY_CLASSE = "id_classe";
@@ -93,10 +93,10 @@ public class SQLiteOpen extends SQLiteOpenHelper {
     // SQL de création tableau UE
     public static final String METIER_TABLE_CREATE_UE =
             "CREATE TABLE " + METIER_TABLE_NAME_UE + "(" +
-                    METIER_KEY_UE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    METIER_NOM_UE + " TEXT," +
-                    METIER_MATIERES_UE + " TEXT"+
-                    METIER_CREDIT_UE+" INTEGER," +
+                    METIER_KEY_UE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    METIER_NOM_UE + " TEXT, " +
+                    METIER_MATIERES_UE + " TEXT, "+
+                    METIER_CREDIT_UE+" INTEGER, " +
                     METIER_RESPONSABLE_UE + " TEXT"+
                     "); ";
 
