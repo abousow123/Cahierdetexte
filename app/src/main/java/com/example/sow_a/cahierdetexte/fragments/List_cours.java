@@ -108,7 +108,7 @@ public class List_cours extends Fragment {
 
 
         FloatingActionButton fab = (FloatingActionButton)rootView.findViewById(R.id.fab);
-        fab.setImageResource(R.drawable.ic_menu_camera);
+        fab.setImageResource(R.mipmap.ajout3);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,7 +137,7 @@ public class List_cours extends Fragment {
 
                 buider.setMessage(cour.toString());
 
-                Toast.makeText(getContext(),"sdsds",Toast.LENGTH_LONG).show();
+               // Toast.makeText(getContext(),"sdsds",Toast.LENGTH_LONG).show();
 
                 AlertDialog dialog = buider.create();
                 dialog.show();
@@ -163,28 +163,43 @@ public class List_cours extends Fragment {
        // listDataHeader.add("Now Showing");
        // listDataHeader.add("Coming Soon..");
 
-        ArrayList<String> li = new ArrayList<>() ;
+
 
 
         // dao = new DAO(getContext()) ;
 
      // Toast.makeText(getContext(),dao.allCour().get(0).getDescription(),Toast.LENGTH_LONG).show();
 
-      /*  for (int i = 0;i<dao.allCour().size();i++){
-            listDataHeader.add(dao.allCour().get(i).getDate()) ;
+        if(dao.allCour().size()!=0) {
+            listDataHeader.add(dao.allCour().get(0).getDate());
+            for (int i = 1; i < dao.allCour().size(); i++) {
+                if (dao.allCour().get(i - 1).getDate().equalsIgnoreCase(dao.allCour().get(i).getDate()))
+                    listDataHeader.add(dao.allCour().get(i).getDate());
+
+            }
+
+            int k = 0;
+
+            while (k < listDataHeader.size()) {
+                ArrayList<String> li = new ArrayList<>();
+                for (int i = 0; i < dao.allCour().size(); i++) {
+                    if (dao.allCour().get(i).getDate().equalsIgnoreCase(listDataHeader.get(k))) {
+                        li.add(dao.allCour().get(i).getMatiere());
+                    }
+
+                }
+                listDataChild.put(listDataHeader.get(k), li);
+                k++;
+            }
+
 
         }
 
-        int k =  0;
 
 
 
 
-
-
-
-
-        for (int i = 0;i<dao.allCour().size();i++){
+       /* for (int i = 0;i<dao.allCour().size();i++){
             if(dao.allCour().get(i).getDate().equalsIgnoreCase(listDataHeader.get(i))){
                   li.add(dao.allCour().get(i).getMatiere()) ;
 
@@ -192,7 +207,7 @@ public class List_cours extends Fragment {
 
             listDataChild.put(listDataHeader.get(i),li) ;
 
-        }*/
+        }
 
 
 
@@ -201,7 +216,7 @@ public class List_cours extends Fragment {
 
 
         // Adding child data
-    /*  List<String> top250 = new ArrayList<String>();
+      List<String> top250 = new ArrayList<String>();
         top250.add("The Shawshank Redemption");
         top250.add("The Godfather");
         top250.add("The Godfather: Part II");
@@ -210,7 +225,7 @@ public class List_cours extends Fragment {
         top250.add("The Dark Knight");
         top250.add("12 Angry Men");
 
-        List<String> nowShowing = new ArrayList<String>();
+     /*   List<String> nowShowing = new ArrayList<String>();
         nowShowing.add("The Conjuring");
         nowShowing.add("Despicable Me 2");
         nowShowing.add("Turbo");
@@ -223,16 +238,16 @@ public class List_cours extends Fragment {
         comingSoon.add("The Smurfs 2");
         comingSoon.add("The Spectacular Now");
         comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");*/
+        comingSoon.add("Europa Report");
 
     //   listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
        // listDataChild.put(listDataHeader.get(1), nowShowing);
       //  listDataChild.put(listDataHeader.get(2), comingSoon);
-        //listDataChild.put(listDataHeader.get(3),li) ;*/
-      //  for (int i = 0;i<dao.allCour().size();i++){
-        //    listDataChild.put(listDataHeader.get(i),top250) ;*/
+        //listDataChild.put(listDataHeader.get(3),li) ;
+       for (int i = 0;i<dao.allCour().size();i++){
+            listDataChild.put(listDataHeader.get(i),top250) ;
 
-       // }
+        }*/
     }
 
 

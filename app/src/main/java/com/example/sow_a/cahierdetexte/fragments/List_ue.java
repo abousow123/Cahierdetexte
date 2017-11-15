@@ -1,8 +1,6 @@
 package com.example.sow_a.cahierdetexte.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,21 +12,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sow_a.cahierdetexte.R;
 import com.example.sow_a.cahierdetexte.ajouts.Add_ue;
 import com.example.sow_a.cahierdetexte.dao.DAO;
-import com.example.sow_a.cahierdetexte.metier.Cour;
-import com.example.sow_a.cahierdetexte.metier.ExpandableListAdapte;
-import com.example.sow_a.cahierdetexte.metier.Matiere;
 import com.example.sow_a.cahierdetexte.metier.Ue;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class List_ue extends Fragment {
@@ -42,7 +35,7 @@ public class List_ue extends Fragment {
     ArrayList<String> ab1;
 
     DAO dao ;
-    ListView listViewtab1,listViewtab3 ;
+    ListView listViewtab3 ;
 
 
 
@@ -61,13 +54,8 @@ public class List_ue extends Fragment {
         super.onCreate(savedInstanceState);
 
         dao = new DAO(getContext()) ;
-
+         listUE = new ArrayList<>() ;
         listUE = dao.allUE() ;
-
-
-
-
-
 
 
 
@@ -94,15 +82,42 @@ public class List_ue extends Fragment {
 
         butAjoutUE =  (Button)rootView.findViewById(R.id.butAjoutUE) ;
 
+        if(listUE.size()!=0)
+            Toast.makeText(getContext(), listUE.get(0).getResponsable(), Toast.LENGTH_LONG).show();
+
+
+        String[] a = new String[3] ;
+
+       // for (int i = 0;i<dao.allUE().size();i++){
+
+        //    a[i] = dao.allUE().get(i).getNomUE() ;
+
+       // }
+
+        a[0]= "xsvx" ;
+
 
         ArrayAdapter<Ue> adapter1 = new MyListAdapter1() ;
+                //MyListAdapter1() ;
         listViewtab3.setAdapter(adapter1);
 
+        listViewtab3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(
+                        getContext());
+
+                builder.setMessage("fdfcxcx");
 
 
 
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
-
+            }
+        });
 
 
 
@@ -146,16 +161,17 @@ public class List_ue extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater  lis = getActivity().getLayoutInflater() ;
             View row = lis.inflate(R.layout.listview_ue, parent, false);
-            TextView labelnomUE = (TextView) row.findViewById(R.id.nomUE);
+
+            TextView labelnomUE = (TextView) row.findViewById(R.id.nomEU);
 
             TextView labelCredit =  (TextView) row.findViewById(R.id.cr);
-            TextView labelResp =  (TextView) row.findViewById(R.id.Re) ;
+            TextView labelResp =  (TextView) row.findViewById(R.id.re) ;
             TextView labelMatiere = (TextView)row.findViewById(R.id.mat) ;
 
             labelnomUE.setText(listUE.get(position).getNomUE());
             labelCredit.setText(""+listUE.get(position).getCreditUE());
             labelResp.setText(listUE.get(position).getResponsable());
-            labelMatiere.setText(listUE.get(position).getResponsable());
+            labelMatiere.setText(listUE.get(position).getMatieres());
 
 
 
