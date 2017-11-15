@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cv"   >
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/nomEU"
         android:layout_width="wrap_content"
@@ -17,6 +18,113 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="25dp"
         android:text="TextView" />
+=======
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:background="#ffffff"
+
+        >
+
+        <TableRow
+            android:showDividers="middle"
+            android:paddingTop="15dp"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:id="@+id/m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18dp" />
+
+
+
+            <TextView
+                android:id="@+id/nomUE"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="TextView"
+                android:textSize="28dp" />
+
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:showDividers="middle"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:baselineAligned="true">
+
+
+
+
+            <TextView
+                android:id="@+id/Res"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="@string/Matiere"
+
+                android:textColor="@color/colorAccent"
+                android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/Re"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="15dp"
+            android:text="@string/creditUE"
+            android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/affResp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="1dp"
+                android:text="@string/responsable"
+                android:textSize="18dp" />
+
+
+
+        </TableRow>
+
+        <TableRow
+
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/mat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/cr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="TextView"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="TextView"
+                android:textSize="18dp" />
+>>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
 
     <TextView
         android:id="@+id/mat"
