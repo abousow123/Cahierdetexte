@@ -2,8 +2,6 @@ package com.example.sow_a.cahierdetexte.ajouts;
 
 import android.content.ContentValues;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -32,7 +30,7 @@ public class Add_matiere extends AppCompatActivity {
 
     Spinner spinnerProf;
     Button add ;
-    EditText editText1,editText3 ;
+    EditText editTextNom,editTextVolumeHoraire ;
     DAO dao ;
 
     FragmentTransaction fragmentTransaction ;
@@ -60,10 +58,10 @@ public class Add_matiere extends AppCompatActivity {
         });
 
 
-        editText1 = (EditText)findViewById(R.id.editText) ;
+        editTextNom = (EditText)findViewById(R.id.editText) ;
 
 
-        editText3 = (EditText)findViewById(R.id.editText3) ;
+        editTextVolumeHoraire = (EditText)findViewById(R.id.editText3) ;
         add = (Button)findViewById(R.id.butAddMatiere) ;
         spinnerProf = (Spinner)findViewById(R.id.spinner2) ;
         spinnerProf.getPopupBackground() ;
@@ -71,15 +69,15 @@ public class Add_matiere extends AppCompatActivity {
 
         dao = new DAO(getApplicationContext()) ;
 
-        ArrayList<String> ms = new ArrayList<>();
+        ArrayList<String> listProf = new ArrayList<>();
 
         for (int i = 0;i<dao.allProf().size();i++){
-            ms.add(dao.allProf().get(i).getPrenom() +" "+dao.allProf().get(i).getNom());
+            listProf.add(dao.allProf().get(i).getPrenom() +" "+dao.allProf().get(i).getNom());
         }
 
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, ms) ;
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, listProf) ;
 
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -94,14 +92,14 @@ public class Add_matiere extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues contentValues = new ContentValues() ;
 
-                String m = editText1.getText().toString() ;
+                String nom = editTextNom.getText().toString() ;
                 String p = spinnerProf.getSelectedItem().toString();
 
-                String b = editText3.getText().toString() ;
+                String b = editTextVolumeHoraire.getText().toString() ;
                 int v = Integer.parseInt(b) ;
 
-                if (m.equalsIgnoreCase("") || p.equalsIgnoreCase("")
-                        || editText3.getText().toString().equalsIgnoreCase("") ) {
+                if (nom.equalsIgnoreCase("") || p.equalsIgnoreCase("")
+                        || editTextVolumeHoraire.getText().toString().equalsIgnoreCase("") ) {
 
                     Toast.makeText(
                             getApplicationContext(),
@@ -111,7 +109,7 @@ public class Add_matiere extends AppCompatActivity {
                 }
                 else {
 
-                    contentValues.put("nomMatiere",m);
+                    contentValues.put("nomMatiere",nom);
                     contentValues.put("volumeHoraire",v);
                     contentValues.put("professeur",p);
 

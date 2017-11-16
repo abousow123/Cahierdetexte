@@ -25,7 +25,7 @@ import java.util.Locale;
 public class Add_Cours extends AppCompatActivity {
 
     TimePicker deb,fin ;
-    Spinner spinner, spinner1 ;
+    Spinner spinnerMatiere, spinnerProf ;
     EditText description ;
     Button button ;
 
@@ -38,8 +38,8 @@ public class Add_Cours extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        spinner = (Spinner)findViewById(R.id.spinner) ;
-        spinner1 = (Spinner)findViewById(R.id.spinner4) ;
+        spinnerMatiere = (Spinner)findViewById(R.id.spinner) ;
+        spinnerProf = (Spinner)findViewById(R.id.spinner4) ;
         deb = (TimePicker)findViewById(R.id.timePicker4) ;
         fin = (TimePicker)findViewById(R.id.timePicker2) ;
         description = (EditText)findViewById(R.id.editText5) ;
@@ -52,50 +52,50 @@ public class Add_Cours extends AppCompatActivity {
         fin.setIs24HourView(true);
 
         dao = new DAO(getApplicationContext()) ;
-        ArrayList<String> ms = new ArrayList<>();
-        ArrayList<String> ps = new ArrayList<>();
+        ArrayList<String> listMatiere = new ArrayList<>();
+        ArrayList<String> listProf = new ArrayList<>();
         for (int i = 0;i<dao.allMatiere().size();i++){
-            ms.add(dao.allMatiere().get(i).getNom_matiere());
+            listMatiere.add(dao.allMatiere().get(i).getNom_matiere());
         }
 
         for (int i = 0;i<dao.allProf().size();i++){
-            ps.add(dao.allProf().get(i).getPrenom() + " " + dao.allProf().get(i).getNom());
+            listProf.add(dao.allProf().get(i).getPrenom() + " " + dao.allProf().get(i).getNom());
         }
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, ms) ;
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, listMatiere) ;
 
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, ps) ;
+        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, listProf) ;
 
         dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(dataAdapter);
-        spinner1.setAdapter(dataAdapter1);
+        spinnerMatiere.setAdapter(dataAdapter);
+        spinnerProf.setAdapter(dataAdapter1);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String des = description.getText().toString() ;
 
-                int  debut = 0;  //deb.getCurrentHour() ;
-                int  debut1 =  12; deb.getCurrentMinute() ;
+                int  debut = deb.getCurrentHour() ;
+                int  debut1 =  deb.getCurrentMinute() ;
                 String dT = debut+"h"+debut1 ;
 
                 int f =  1;   //fin.getCurrentHour() ;
                 int f1 =  25;    //fin.getCurrentMinute() ;
                 String ft = f + "h" + f1 ;
 
-                String sp = spinner.getSelectedItem().toString() ;
-                String s = spinner1.getSelectedItem().toString() ;
+                String matiere = spinnerMatiere.getSelectedItem().toString() ;
+                String prof = spinnerProf.getSelectedItem().toString() ;
                 String d = getDateTime() ;
 
                 ContentValues contentValues = new ContentValues() ;
 
-                contentValues.put("matiere",sp);
+                contentValues.put("matiere",matiere);
                 contentValues.put("date",d);
-                contentValues.put("professeur",s);
+                contentValues.put("professeur",prof);
                 contentValues.put("heuredeb",dT);
                 contentValues.put("heurefin",ft);
                 contentValues.put("description",des);

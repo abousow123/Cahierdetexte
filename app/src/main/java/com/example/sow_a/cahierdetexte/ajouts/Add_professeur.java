@@ -2,8 +2,6 @@ package com.example.sow_a.cahierdetexte.ajouts;
 
 import android.content.ContentValues;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +16,7 @@ import com.example.sow_a.cahierdetexte.dao.DAO;
 
 public class Add_professeur extends AppCompatActivity {
 
-    private EditText nom , prenom, specialite,email ;
+    private EditText nom , prenom, telephone,email ;
     private Button addP ;
 
     private DAO dao ;
@@ -36,7 +34,7 @@ public class Add_professeur extends AppCompatActivity {
 
         nom = (EditText)findViewById(R.id.editText1) ;
         prenom = (EditText)findViewById(R.id.editText2) ;
-        specialite = (EditText)findViewById(R.id.editText5) ;
+        telephone = (EditText)findViewById(R.id.editText3) ;
         email = (EditText)findViewById(R.id.editText4) ;
         addP = (Button)findViewById(R.id.ajou) ;
 
@@ -47,7 +45,7 @@ public class Add_professeur extends AppCompatActivity {
             public void onClick(View view) {
                 String n = nom.getText().toString() ;
                 String p = prenom.getText().toString() ;
-                String s = specialite.getText().toString() ;
+                String s = telephone.getText().toString() ;
                 String e = email.getText().toString() ;
 
                 ContentValues ct = new ContentValues() ;
