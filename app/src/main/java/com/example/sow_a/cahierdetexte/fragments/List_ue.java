@@ -1,10 +1,6 @@
 package com.example.sow_a.cahierdetexte.fragments;
 
-<<<<<<< HEAD
-=======
-import android.content.Context;
-import android.content.DialogInterface;
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sow_a.cahierdetexte.R;
-import com.example.sow_a.cahierdetexte.ajouts.Add_etudiant;
 import com.example.sow_a.cahierdetexte.ajouts.Add_ue;
 import com.example.sow_a.cahierdetexte.dao.DAO;
 import com.example.sow_a.cahierdetexte.metier.Ue;
@@ -168,11 +163,10 @@ public class List_ue extends Fragment {
             LayoutInflater  lis = getActivity().getLayoutInflater() ;
             View row = lis.inflate(R.layout.listview_ue, parent, false);
 
-<<<<<<< HEAD
+
             TextView labelnomUE = (TextView) row.findViewById(R.id.nomEU);
-=======
-            TextView labelnomUE = (TextView) row.findViewById(R.id.nomUE);
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
+
 
             TextView labelCredit =  (TextView) row.findViewById(R.id.cr);
             TextView labelResp =  (TextView) row.findViewById(R.id.re) ;

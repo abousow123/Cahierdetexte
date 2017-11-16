@@ -21,38 +21,32 @@
             >
             <TextView
                 android:id="@+id/Re"
-<<<<<<< HEAD
+
                 android:layout_width="80dp"
-=======
-                android:layout_width="100dp"
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
 
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
 
                 android:text="Unités d'enseignement"
-<<<<<<< HEAD
+
                 android:textSize="13dp" />
 
-            <TextView
-                android:id="@+id/R"
-                android:layout_width="80dp"
-=======
-                android:textSize="18dp" />
+
 
             <TextView
                 android:id="@+id/R"
                 android:layout_width="100dp"
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/colorAccent"
                 android:text="Elements constitutifs"
-<<<<<<< HEAD
+
                 android:textSize="13dp" />
-=======
+
                 android:textSize="18dp" />
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
 
             <TextView
                 android:id="@+id/s"
@@ -62,11 +56,10 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/creditUE"
-<<<<<<< HEAD
                 android:textSize="13dp" />
-=======
+
                 android:textSize="18dp" />
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
 
             <TextView
                 android:id="@+id/p"
@@ -74,13 +67,13 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:layout_marginLeft="12dp"
-<<<<<<< HEAD
+
                 android:text="Responsable      d'UE"
                 android:textSize="13dp" />
-=======
+
                 android:text="Responsable d'UE"
                 android:textSize="18dp" />
->>>>>>> 9b058a83ed52cffec50c0f8eaeb9b28bd3d9813a
+
 
         </TableRow>
 
