@@ -2,8 +2,6 @@ package com.example.sow_a.cahierdetexte.ajouts;
 
 import android.content.ContentValues;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -71,7 +69,8 @@ public class Add_etudiant extends AppCompatActivity {
 
                 contentValues = new ContentValues() ;
 
-                String p = prenom.getText().toString();
+
+                String p  = prenom.getText().toString();
                 String n = nom.getText().toString();
                 String telephone = tel.getText().toString();
                 String e = email.getText().toString();

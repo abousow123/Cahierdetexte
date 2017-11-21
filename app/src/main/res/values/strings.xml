@@ -13,8 +13,8 @@
 
     <!-- TODO: my strings -->
     <string name="heureDeb">Heure début:</string>
-    <string name="heureFin">Heure fin:</string>
-    <string name="description">Description:</string>
+    <string name="heureFin">  Heure fin:</string>
+    <string name="description">Description du cours:</string>
     <string name="matiere">Matière:</string>
     <string name="cahier">Cahier de texte</string>
     <string name="ajoutmatiere">Etudiants</string>
