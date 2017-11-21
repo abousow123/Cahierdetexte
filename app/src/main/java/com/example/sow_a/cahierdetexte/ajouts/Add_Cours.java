@@ -49,6 +49,7 @@ public class Add_Cours extends AppCompatActivity {
 
 
         deb.setIs24HourView(true);
+        deb.getBackground() ;
         fin.setIs24HourView(true);
 
         dao = new DAO(getApplicationContext()) ;

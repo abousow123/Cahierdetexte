@@ -41,6 +41,7 @@
                 android:text="@string/heureDeb"
                 android:textIsSelectable="true"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:layout_alignBottom="@+id/timePicker4"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="35dp" />
@@ -52,6 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/textView9"
                 android:layout_marginTop="34dp"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="@string/matiere"
                 android:textSize="20dp" />
@@ -70,6 +72,7 @@
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:timePickerMode="spinner"
+                android:numbersSelectorColor="@color/cardview_shadow_end_color"
                 android:background="@color/grille"
                 android:layout_below="@+id/timePicker4"
                 android:layout_alignStart="@+id/timePicker4"
@@ -81,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/heureFin"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:layout_above="@+id/textView11"
                 android:layout_alignStart="@+id/textView9"
                 android:layout_marginBottom="33dp" />
@@ -92,6 +96,7 @@
                 android:text="@string/description"
                 android:textSize="20dp"
                 android:layout_below="@+id/timePicker2"
+                android:textStyle="bold"
                 android:layout_alignStart="@+id/textView10"
                 android:layout_marginTop="13dp" />
 
@@ -113,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="ajouter"
                 android:background="#78A419"
+
                 android:layout_alignParentBottom="true"
                 android:layout_alignEnd="@+id/editText5" />
 
@@ -124,6 +130,7 @@
                 android:layout_below="@+id/spinner"
                 android:layout_marginTop="28dp"
                 android:text="@string/ajoutCour"
+                android:textStyle="bold"
                 android:textSize="20dp" />
 
             <Spinner

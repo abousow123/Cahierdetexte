@@ -18,7 +18,7 @@
     <string name="matiere">Matière:</string>
     <string name="cahier">Cahier de texte</string>
     <string name="ajoutmatiere">Etudiants</string>
-    <string name="ajoutCour">Professeurs</string>
+    <string name="ajoutCour">Professeurs:</string>
     <string name="unite">Unités enseignement</string>
     <string name="creditUE">Crédits</string>
     <string name="responsable">Responsable</string>
