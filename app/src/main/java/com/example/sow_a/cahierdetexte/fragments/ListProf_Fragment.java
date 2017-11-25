@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class ListProf_Fragment extends Fragment {
 
     ListView listView;
-    ImageView iconne;
+    ImageView iconne, ic ;
 
     FragmentTransaction fragmentTransaction ;
     private FragmentManager fragmentManager;
@@ -68,6 +68,7 @@ public class ListProf_Fragment extends Fragment {
         listView = (ListView)view.findViewById(R.id.listViewPro);
 
         iconne = (ImageView)view.findViewById(R.id.butAjoutProf) ;
+
 
         ArrayAdapter<Professeur> adapter = new MyListAdapter() ;
         listView.setAdapter(adapter);
@@ -179,7 +180,7 @@ public class ListProf_Fragment extends Fragment {
     class MyListAdapter extends ArrayAdapter<Professeur> {
         MyListAdapter() {
 
-            super(ListProf_Fragment.super.getContext(), R.layout.listetudiant_suit,professeurs);
+            super(ListProf_Fragment.super.getContext(), R.layout.listeprof_suit,professeurs);
 
         }
 
@@ -190,7 +191,7 @@ public class ListProf_Fragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = getActivity().getLayoutInflater();
-            View row = inflater.inflate(R.layout.listetudiant_suit, parent, false);
+            View row = inflater.inflate(R.layout.listeprof_suit, parent, false);
             TextView label = (TextView) row.findViewById(R.id.textView1);
             //triTabChaine(sg);
             label.setText(professeurs.get(position).getNom() + " "
@@ -205,6 +206,8 @@ public class ListProf_Fragment extends Fragment {
                     .equalsIgnoreCase("Homme"))
                 icon.setImageResource(R.drawable.h1);*/
 
+         ImageView   ic = (ImageView)row.findViewById(R.id.iconn) ;
+           ic.setImageResource(R.mipmap.prof);
             return (row);
         }
     }

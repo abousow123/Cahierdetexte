@@ -17,7 +17,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorButtonNormal"
+
 
            >
 
@@ -33,11 +33,12 @@
 
             <EditText
                 android:id="@+id/unite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:ems="10"
+                android:hint="taper nom UE"
                 android:inputType="textPersonName"
-                android:background="#ffffff"
+                android:background="@drawable/round_edit"
                 android:layout_marginTop="11dp"
                 android:layout_below="@+id/textView12"
                 android:layout_alignStart="@+id/textView12" />
@@ -46,18 +47,18 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="25dp"
                 android:textSize="25dp"
                 android:text="Matieres"
                 android:layout_below="@+id/unite"
-                android:layout_alignStart="@+id/cr" />
+                android:layout_alignStart="@+id/unite" />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/cr"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:background="#ffffff"
+                android:background="@drawable/round_edit"
                 android:inputType="text"
                 android:hint="Saisir éléments contitutifs"
                 android:completionThreshold="1"
@@ -70,7 +71,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="26dp"
                 android:textSize="25dp"
                 android:text="Crédits:"
                 android:layout_below="@+id/cr"
@@ -79,10 +80,11 @@
 
             <EditText
                 android:id="@+id/cred"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:ems="10"
-                android:background="#ffffff"
+                android:background="@drawable/round_edit"
+                android:hint="taper le nombre de crédits"
                 android:inputType="number"
                 android:layout_marginTop="11dp"
                 android:layout_below="@+id/textView15"
@@ -95,25 +97,26 @@
                 android:layout_height="wrap_content"
                 android:textSize="25dp"
                 android:text="@string/responsable"
+                android:layout_marginTop="15dp"
                 android:layout_below="@+id/cred"
-                android:layout_alignStart="@+id/cred"
-                android:layout_marginTop="41dp" />
+                android:layout_alignStart="@+id/cred" />
 
             <Spinner
                 android:id="@+id/spinnerResp"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="15dp"
                 android:layout_below="@+id/textView14"
-                android:layout_alignStart="@+id/cr" />
+                android:layout_alignStart="@+id/textView14" />
 
             <Button
                 android:id="@+id/addEU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
-                android:layout_marginTop="52dp"
-                android:text="Button"
+                android:background="@drawable/layout_buton"
+                android:layout_marginTop="30dp"
+                android:text="ajouter"
                 android:layout_below="@+id/spinnerResp"
                 android:layout_toEndOf="@+id/textView13" />
 

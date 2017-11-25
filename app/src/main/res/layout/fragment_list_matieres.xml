@@ -14,15 +14,14 @@
 
     </ListView>
 
-    <Button
+    <ImageView
         android:id="@+id/butAjoutMatiere"
-        android:layout_width="70sp"
-        android:layout_height="50sp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="29dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="300dp"/>
+
+        android:layout_marginTop="440dp"
+        android:layout_marginLeft="250dp"/>
 
 </FrameLayout>

@@ -1,11 +1,7 @@
 package com.example.sow_a.cahierdetexte.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,20 +9,14 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.example.sow_a.cahierdetexte.R;
 import com.example.sow_a.cahierdetexte.ajouts.Add_Cours;
 import com.example.sow_a.cahierdetexte.dao.DAO;
 import com.example.sow_a.cahierdetexte.metier.Cour;
 import com.example.sow_a.cahierdetexte.metier.ExpandableListAdapte;
-import com.example.sow_a.cahierdetexte.metier.Matiere;
-import com.example.sow_a.cahierdetexte.metier.Ue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -107,8 +97,8 @@ public class List_cours extends Fragment {
 
 
 
-        FloatingActionButton fab = (FloatingActionButton)rootView.findViewById(R.id.fab);
-        fab.setImageResource(R.mipmap.ajout3);
+        ImageView fab = (ImageView) rootView.findViewById(R.id.fab);
+        fab.setImageResource(R.mipmap.addcours);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

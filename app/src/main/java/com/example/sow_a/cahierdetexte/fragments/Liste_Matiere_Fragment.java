@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class Liste_Matiere_Fragment extends Fragment {
 
     DAO dao ;
     ListView listView ;
+    ImageView imageView ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class Liste_Matiere_Fragment extends Fragment {
 
 
         listView = (ListView)view.findViewById(R.id.listMatiere);
+
+
 
         ArrayAdapter<Matiere> adapter = new MyListAdapter() ;
         listView.setAdapter(adapter);

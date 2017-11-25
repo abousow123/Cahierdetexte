@@ -1,8 +1,6 @@
 package com.example.sow_a.cahierdetexte.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,27 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.sow_a.cahierdetexte.R;
 import com.example.sow_a.cahierdetexte.ajouts.Add_matiere;
 import com.example.sow_a.cahierdetexte.dao.DAO;
-import com.example.sow_a.cahierdetexte.metier.Cour;
-import com.example.sow_a.cahierdetexte.metier.ExpandableListAdapte;
 import com.example.sow_a.cahierdetexte.metier.Matiere;
-import com.example.sow_a.cahierdetexte.metier.Ue;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class List_matieres extends Fragment {
 
-    Button butAjoutMatiere ;
+    ImageView butAjoutMatiere ;
 
     ArrayList<Matiere> matiereArrayList ;
 
@@ -83,7 +75,8 @@ public class List_matieres extends Fragment {
 
         listViewtab1 = (ListView)rootView.findViewById(R.id.listMatiere);
 
-        butAjoutMatiere = (Button)rootView.findViewById(R.id.butAjoutMatiere) ;
+        butAjoutMatiere = (ImageView) rootView.findViewById(R.id.butAjoutMatiere) ;
+        butAjoutMatiere.setImageResource(R.mipmap.addmat);
 
         listViewtab1.setAdapter(adapter);
 

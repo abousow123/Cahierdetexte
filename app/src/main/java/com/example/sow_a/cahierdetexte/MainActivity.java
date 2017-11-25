@@ -2,9 +2,9 @@ package com.example.sow_a.cahierdetexte;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity
      //   ViewPager viewPager = (ViewPager)findViewById(R.id.drawer_layout) ;
       //  viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
+      //  ImageView imageView = (ImageView)findViewById(R.id.nav_camera) ;
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity
       /*  ActionBar actionBar = getSupportActionBar() ;
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);*/
+
+
 
 
         fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -110,7 +115,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
