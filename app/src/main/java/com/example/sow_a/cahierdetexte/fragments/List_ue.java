@@ -171,16 +171,16 @@ public class List_ue extends Fragment {
             TextView labelCredit =  (TextView) row.findViewById(R.id.cr);
             TextView labelResp =  (TextView) row.findViewById(R.id.re) ;
             TextView labelMatiere = (TextView)row.findViewById(R.id.mat) ;
-            TextView labelMat2 = (TextView)row.findViewById(R.id.mat2) ;
-            TextView labelMat3 = (TextView)row.findViewById(R.id.mat3) ;
+
 
             String[] sepa = listUE.get(position).getMatieres().split(", ") ;
 
             labelnomUE.setText(listUE.get(position).getNomUE());
             labelCredit.setText(""+listUE.get(position).getCreditUE());
             labelResp.setText(listUE.get(position).getResponsable());
+            labelMatiere.setText(sepa[0]);
 
-            if(sepa.length==1) labelMatiere.setText(sepa[0]);
+          /*  if(sepa.length==1) labelMatiere.setText(sepa[0]);
             if(sepa.length==2){
                 labelMatiere.setText(sepa[0]);
                 labelMat2.setText(sepa[1]);
@@ -189,7 +189,7 @@ public class List_ue extends Fragment {
                 labelMatiere.setText(sepa[0]);
                 labelMat2.setText(sepa[1]);
                 labelMat3.setText(sepa[2]);
-            }
+            }*/
 
 
 

@@ -136,6 +136,13 @@ public class List_matieres extends Fragment {
             //triTabChaine(sg);
             label.setText(matiereArrayList.get(position).getNom_matiere() );
 
+
+
+
+            ImageView icon = (ImageView) row.findViewById(R.id.iconMat);
+             icon.setImageResource(R.mipmap.maticone);
+
+
         /*   ImageView icon = (ImageView) row.findViewById(R.id.icon);
 
             if (etudiants.get(position).getSexe()
