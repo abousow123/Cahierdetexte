@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class List_ue extends Fragment {
 
-    Button butAjoutUE;
+    ImageView butAjoutUE;
 
 
     ArrayList<Ue> listUE ;
@@ -81,7 +81,7 @@ public class List_ue extends Fragment {
 
 
 
-        butAjoutUE =  (Button)rootView.findViewById(R.id.butAjoutUE) ;
+        butAjoutUE =  (ImageView) rootView.findViewById(R.id.butAjoutUE) ;
 
         if(listUE.size()!=0)
             Toast.makeText(getContext(), listUE.get(0).getResponsable(), Toast.LENGTH_LONG).show();
@@ -119,6 +119,8 @@ public class List_ue extends Fragment {
 
             }
         });
+
+        listViewtab3.setDividerHeight(15);
 
 
 
@@ -174,11 +176,16 @@ public class List_ue extends Fragment {
 
 
             String[] sepa = listUE.get(position).getMatieres().split(", ") ;
-
+            String elements = "" ;
             labelnomUE.setText(listUE.get(position).getNomUE());
             labelCredit.setText(""+listUE.get(position).getCreditUE());
             labelResp.setText(listUE.get(position).getResponsable());
-            labelMatiere.setText(sepa[0]);
+
+            for(int j=0;j<sepa.length;j++){
+                elements += sepa[j]+ "\n";
+            }
+
+            labelMatiere.setText(elements);
 
           /*  if(sepa.length==1) labelMatiere.setText(sepa[0]);
             if(sepa.length==2){

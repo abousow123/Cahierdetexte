@@ -8,8 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -27,7 +27,7 @@ public class Add_Cours extends AppCompatActivity {
     TimePicker deb,fin ;
     Spinner spinnerMatiere, spinnerProf ;
     EditText description ;
-    Button button ;
+    ImageView button ;
 
     DAO dao ;
 
@@ -43,10 +43,10 @@ public class Add_Cours extends AppCompatActivity {
         deb = (TimePicker)findViewById(R.id.timePicker4) ;
         fin = (TimePicker)findViewById(R.id.timePicker2) ;
         description = (EditText)findViewById(R.id.editText5) ;
-        button = (Button)findViewById(R.id.buttonCour) ;
+        button = (ImageView) findViewById(R.id.buttonCour) ;
 
 
-
+        button.setImageResource(R.mipmap.addcour);
 
         deb.setIs24HourView(true);
         deb.getBackground() ;

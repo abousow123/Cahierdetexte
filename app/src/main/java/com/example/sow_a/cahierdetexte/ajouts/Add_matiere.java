@@ -26,7 +26,7 @@ public class Add_matiere extends AppCompatActivity {
 
     ArrayList<Matiere> matiereArrayList ;
 
-
+    Bundle extra ;
 
     Spinner spinnerProf;
     Button add ;
@@ -84,7 +84,9 @@ public class Add_matiere extends AppCompatActivity {
 
         spinnerProf.setAdapter(dataAdapter);
 
+        extra = getIntent().getExtras();
 
+        if(extra != null) chargerInfoEtudiant();
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -114,12 +116,22 @@ public class Add_matiere extends AppCompatActivity {
                     contentValues.put("professeur",p);
 
 
+                    String text = "";
 
-                    dao.addMatiere(contentValues);
+
 
                     Toast.makeText(getApplicationContext(),
                             "succés",
                             Toast.LENGTH_LONG).show();
+
+                    if(extra == null) {
+                        dao.addMatiere(contentValues);
+                        text = nom +", Ajouter avec succés !!!";
+                    }
+                    else {
+                        dao.updateMatiere(contentValues, extra.getInt("idMat"));
+                        text= "Mofication effectué avec succès";
+                    }
 
 
 
@@ -147,6 +159,14 @@ public class Add_matiere extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    public void chargerInfoEtudiant() {
+        this.editTextNom.setText(extra.getString("nomMatiere"));
+        this.editTextVolumeHoraire.setText(String.valueOf(extra.getInt("volumeHoraire")));
+
+
     }
 
 }

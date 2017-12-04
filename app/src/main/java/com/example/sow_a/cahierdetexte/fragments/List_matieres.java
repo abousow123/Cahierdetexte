@@ -1,5 +1,6 @@
 package com.example.sow_a.cahierdetexte.fragments;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -86,12 +87,59 @@ public class List_matieres extends Fragment {
 
                 final Matiere matiere = matiereArrayList.get(i) ;
 
-                AlertDialog.Builder buider = new AlertDialog.Builder(getContext()) ;
+                final AlertDialog.Builder builder = new AlertDialog.Builder(
+                        getContext());
 
-                buider.setMessage(matiere.toString());
+                builder.setMessage(matiere.toString());
 
-                AlertDialog dialog = buider.create();
+                builder.setPositiveButton("Modifier", new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent it = new Intent(List_matieres.super.getContext(),Add_matiere.class) ;
+
+
+                        ;
+
+
+                        it.putExtra("idMat",matiere.getId());
+                        it.putExtra("nomMatiere", matiere.getNom_matiere());
+                        it.putExtra("volumeHoraire", matiere.getVolumeH());
+
+                        it.putExtra("professeur", matiere.getProf());
+
+
+                        startActivity(it);
+
+
+
+                    }
+
+                }) ;
+
+                builder.setNegativeButton("Supprimer", new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        // TODO Auto-generated method stub
+
+                        dao.deleteMatiere(matiere.getId());
+
+                        List_matieres p = new List_matieres() ;
+                        fragmentTransaction = fragmentManager.beginTransaction() ;
+                        fragmentTransaction.replace(R.id.sss,p) ;
+                        fragmentTransaction.commit() ;
+
+
+
+
+                    }
+
+                });
+
+                AlertDialog dialog = builder.create();
                 dialog.show();
+
 
 
             }

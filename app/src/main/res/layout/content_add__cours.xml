@@ -10,8 +10,8 @@
     tools:showIn="@layout/activity_add__cours"
     >
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/ne1"
@@ -112,14 +112,14 @@
                 android:layout_alignEnd="@+id/timePicker2"
                 android:layout_alignStart="@+id/textView11" />
 
-            <Button
+            <ImageView
                 android:id="@+id/buttonCour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
                 android:text="ajouter"
-                android:background="#40A497"
-                android:layout_marginTop="15dp"
-                android:layout_alignParentBottom="true"
+
+                android:layout_marginTop="500dp"
+
                 android:layout_alignEnd="@+id/editText5" />
 
             <TextView

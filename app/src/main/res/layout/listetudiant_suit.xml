@@ -29,11 +29,7 @@
         android:paddingRight="2dp"
         android:paddingTop="2dp" />
 
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="40dp"
 
-            android:layout_marginLeft="300dp"/>
 
     </android.support.v7.widget.CardView>
 

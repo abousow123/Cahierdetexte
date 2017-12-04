@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.sow_a.cahierdetexte.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
