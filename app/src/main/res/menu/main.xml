@@ -8,4 +8,11 @@
         android:title="@string/action_settings"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_"
+        android:orderInCategory="100"
+        android:icon="@mipmap/search"
+        android:title="@string/action_settings"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="never" />
 </menu>

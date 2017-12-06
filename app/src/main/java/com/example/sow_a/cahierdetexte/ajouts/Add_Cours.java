@@ -46,7 +46,7 @@ public class Add_Cours extends AppCompatActivity {
         button = (ImageView) findViewById(R.id.buttonCour) ;
 
 
-        button.setImageResource(R.mipmap.addcour);
+        button.setImageResource(R.mipmap.nn);
 
         deb.setIs24HourView(true);
         deb.getBackground() ;

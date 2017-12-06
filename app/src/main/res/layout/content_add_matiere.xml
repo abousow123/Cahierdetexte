@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ajouter"
-                android:background="#40A497"
+                android:background="@drawable/round_edit1"
                 android:layout_below="@+id/spinner2"
                 android:layout_alignEnd="@+id/editText3"
                 android:layout_marginTop="58dp" />

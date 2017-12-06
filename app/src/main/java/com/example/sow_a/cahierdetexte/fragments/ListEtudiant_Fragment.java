@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class ListEtudiant_Fragment extends Fragment {
 
     ListView listView;
     ImageView iconne;
+    private SearchView recherche;
 
     FragmentTransaction fragmentTransaction ;
     private FragmentManager fragmentManager;
@@ -187,17 +189,17 @@ public class ListEtudiant_Fragment extends Fragment {
             View row = inflater.inflate(R.layout.listetudiant_suit, parent, false);
             TextView label = (TextView) row.findViewById(R.id.textView1);
             //triTabChaine(sg);
-            label.setText(etudiants.get(position).getNom() + " "
-                    + etudiants.get(position).getPrenom());
+            label.setText(etudiants.get(position).getPrenom() + " "
+                    + etudiants.get(position).getNom());
 
             ImageView icon = (ImageView) row.findViewById(R.id.icon);
 
             if (etudiants.get(position).getSexe()
                     .equalsIgnoreCase("Femme"))
-                icon.setImageResource(R.mipmap.fweb);
+                icon.setImageResource(R.mipmap.sf);
             if (etudiants.get(position).getSexe()
                     .equalsIgnoreCase("Homme"))
-                icon.setImageResource(R.mipmap.hweb);
+                icon.setImageResource(R.mipmap.sh);
 
             return (row);
         }
