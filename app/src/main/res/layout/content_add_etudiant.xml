@@ -31,7 +31,7 @@
                 android:layout_toLeftOf="@+id/radioGroup2"
                 android:labelFor="@+id/editText1"
                 android:text="@string/nom"
-                android:textColor="#C03000"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <EditText
@@ -58,7 +58,7 @@
                 android:layout_marginTop="19dp"
                 android:labelFor="@+id/editText2"
                 android:text="@string/prenom"
-                android:textColor="#C03000"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <EditText
@@ -81,7 +81,7 @@
                 android:layout_marginTop="19dp"
                 android:labelFor="@+id/editText3"
                 android:text="@string/telephone"
-                android:textColor="#C03000"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
 
@@ -105,7 +105,7 @@
                 android:layout_below="@+id/editText2"
                 android:layout_marginTop="29dp"
                 android:text="@string/sex"
-                android:textColor="#C03000"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <RadioGroup
@@ -139,7 +139,7 @@
                 android:layout_marginTop="19dp"
                 android:labelFor="@+id/editText4"
                 android:text="@string/em"
-                android:textColor="#C03000"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <EditText

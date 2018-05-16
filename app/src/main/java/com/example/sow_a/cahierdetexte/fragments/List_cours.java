@@ -163,7 +163,7 @@ public class List_cours extends Fragment {
         if(dao.allCour().size()!=0) {
             listDataHeader.add(dao.allCour().get(0).getDate());
             for (int i = 1; i < dao.allCour().size(); i++) {
-                if (dao.allCour().get(i - 1).getDate().equalsIgnoreCase(dao.allCour().get(i).getDate()))
+                if (dao.allCour().get(i - 1).getDate().equalsIgnoreCase(dao.allCour().get(i).getDate())==false)
                     listDataHeader.add(dao.allCour().get(i).getDate());
 
             }
@@ -174,7 +174,7 @@ public class List_cours extends Fragment {
                 ArrayList<String> li = new ArrayList<>();
                 for (int i = 0; i < dao.allCour().size(); i++) {
                     if (dao.allCour().get(i).getDate().equalsIgnoreCase(listDataHeader.get(k))) {
-                        li.add(dao.allCour().get(i).getMatiere());
+                        li.add(dao.allCour().get(i).getMatiere()+ "                      "+dao.allCour().get(i).getHeureDeb()+" - "+dao.allCour().get(i).getHeureFin());
                     }
 
                 }

@@ -28,24 +28,16 @@ public class Etudiant {
     }
 
 
-
+    public String toString(){
+        return  "Nom:  "+this.nom + "\n"+"Prenom:  "+this.prenom + "\n" + "Telephone:  " + this.telephone + "\n" + "Sexe :  "
+                + this.sexe + "\nEmail:  "+ this.email ;
+    }
 
     // gettters and setters
 
     public String getNom() {
         return nom;
     }
-
-
-
-
-
-    public String toString(){
-        return  "Nom:  "+this.nom + "\n"+"Prenom:  "+this.prenom + "\n" + "Telephone:  " + this.telephone + " ans \n" + "Sexe :  "
-                + this.sexe + "\nEmail:  "+ this.email ;
-    }
-
-
 
     public void setNom(String nom) {
         this.nom = nom;
